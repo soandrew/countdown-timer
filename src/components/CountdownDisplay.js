@@ -4,10 +4,10 @@ import Duration from 'time/Duration.js';
 
 const CountdownDisplaySegment = ({ amount, unit }) => {
   return (
-    <div>
-      <div>{amount}</div>
-      <div>{amount === 1 ? unit.name : unit.namePlural}</div>
-    </div>
+    <span>
+      <span>{amount}</span>
+      <span>{amount === 1 ? unit.name : unit.namePlural}</span>
+    </span>
   );
 };
 
@@ -35,11 +35,11 @@ const CountdownDisplay = ({
   }
 
   return (
-    <div>
+    <span>
       <CountdownDisplaySegment {...segments[start]} />
       <CountdownDisplaySegment {...segments[start + 1]} />
       <CountdownDisplaySegment {...segments[start + 2]} />
-    </div>
+    </span>
   )
 };
 
