@@ -1,15 +1,8 @@
 import React from 'react';
+import CountdownDisplaySegment from 'components/CountdownDisplaySegment';
 import ChronoUnit from 'time/ChronoUnit.js';
 import Duration from 'time/Duration.js';
-
-const CountdownDisplaySegment = ({ amount, unit }) => {
-  return (
-    <span>
-      <span>{amount}</span>
-      <span>{amount === 1 ? unit.name : unit.namePlural}</span>
-    </span>
-  );
-};
+import styles from './CountdownDisplay.module.scss';
 
 const CountdownDisplay = ({
   years = 0,
@@ -35,7 +28,7 @@ const CountdownDisplay = ({
   }
 
   return (
-    <span>
+    <span className={styles.CountdownDisplay}>
       <CountdownDisplaySegment {...segments[start]} />
       <CountdownDisplaySegment {...segments[start + 1]} />
       <CountdownDisplaySegment {...segments[start + 2]} />

@@ -1,0 +1,34 @@
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
+
+.CountdownDisplaySegment {
+  $root: &;
+
+  display: flex;
+  flex-direction: column;
+  font-size: 5rem;
+
+  &__digit {
+    display: inline-block;
+    padding: .25em;
+    background-color: gray("200");
+    border-radius: .125em;
+
+    &:first-child {
+      margin-right: .125em;
+    }
+  }
+
+  &__unit {
+    font-size: .5em;
+  }
+
+  &:not(:last-child) {
+    #{$root}__amount {
+      &::after {
+        content: ':';
+        padding: 0 .125em;
+      }
+    }
+  }
+}
