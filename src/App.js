@@ -1,9 +1,9 @@
 import React from 'react';
-import CountdownDisplay from 'components/CountdownDisplay';
+import CountdownTimer from 'components/CountdownTimer';
 
 function App() {
   return (
-    <CountdownDisplay months={1} hours={2} />
+    <CountdownTimer title='Hello, World!' iso='2020-06-12T00:00:00-04:00' />
   );
 }
 

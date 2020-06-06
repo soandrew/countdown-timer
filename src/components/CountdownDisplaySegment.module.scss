@@ -14,7 +14,7 @@
     background-color: gray("200");
     border-radius: .125em;
 
-    &:first-child {
+    &:not(:last-child) {
       margin-right: .125em;
     }
   }

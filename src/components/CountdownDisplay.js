@@ -4,15 +4,20 @@ import ChronoUnit from 'time/ChronoUnit.js';
 import Duration from 'time/Duration.js';
 import styles from './CountdownDisplay.module.scss';
 
-const CountdownDisplay = ({
-  years = 0,
-  months = 0,
-  days = 0,
-  hours = 0,
-  minutes = 0,
-  seconds = 0,
+const {
+  CountdownDisplay: rootClass,
+} = styles;
+
+const getSignificantSegments = ({
+  years,
+  months,
+  days,
+  hours,
+  minutes,
+  seconds,
+  numSegments,
 }) => {
-  const segments = [
+  const allSegments = [
     Duration.of(years, ChronoUnit.YEARS),
     Duration.of(months, ChronoUnit.MONTHS),
     Duration.of(days, ChronoUnit.DAYS),
@@ -20,20 +25,43 @@ const CountdownDisplay = ({
     Duration.of(minutes, ChronoUnit.MINUTES),
     Duration.of(seconds, ChronoUnit.SECONDS),
   ];
-
-  // Determine first segment to display
-  let start = segments.findIndex(({amount}) => amount > 0);
-  if (start === -1 || start > segments.length - 3) {
-    start = segments.length - 3;
+  // Determine first significant segment
+  let start = allSegments.findIndex(({amount}) => amount > 0);
+  if (start === -1 || start + numSegments > allSegments.length) {
+    start = allSegments.length - numSegments;
   }
+  return allSegments.slice(start, start + numSegments);
+};
 
+const CountdownDisplay = (props) => {
+  const significantSegments = getSignificantSegments(props);
   return (
-    <span className={styles.CountdownDisplay}>
-      <CountdownDisplaySegment {...segments[start]} />
-      <CountdownDisplaySegment {...segments[start + 1]} />
-      <CountdownDisplaySegment {...segments[start + 2]} />
+    <span className={rootClass}>
+      {significantSegments.map(duration => (
+        <CountdownDisplaySegment {...duration} key={duration.unit.name} />
+      ))}
     </span>
   )
 };
 
-export default CountdownDisplay;
+CountdownDisplay.defaultProps = {
+  years: 0,
+  months: 0,
+  days: 0,
+  hours: 0,
+  minutes: 0,
+  seconds: 0,
+  numSegments: 3,
+};
+
+const areEqual = (prevProps, nextProps) => {
+  const prevSignificantSegments = getSignificantSegments(prevProps);
+  const nextSignificantSegments = getSignificantSegments(nextProps);
+  if (prevSignificantSegments.length !== nextSignificantSegments.length) return false;
+  for (let i = prevSignificantSegments.length; i >= 0; i--) {
+    if (!Duration.isEqual(prevSignificantSegments[i], nextSignificantSegments[i])) return false;
+  }
+  return true;
+}
+
+export default React.memo(CountdownDisplay, areEqual);

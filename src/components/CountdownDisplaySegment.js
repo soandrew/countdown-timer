@@ -8,8 +8,8 @@ const {
   CountdownDisplaySegment__unit: unitClass,
 } = styles;
 
-const CountdownDisplaySegment = ({ amount, unit }) => {
-  const digits = String(amount).padStart(2, '0').split('');
+const CountdownDisplaySegment = ({ amount, unit, numDigits = 2 }) => {
+  const digits = String(amount).padStart(numDigits, '0').split('');
   return (
     <span className={rootClass}>
       <span className={amountClass}>
