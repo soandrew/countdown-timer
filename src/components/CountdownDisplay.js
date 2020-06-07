@@ -34,17 +34,19 @@ const getSignificantSegments = ({
 };
 
 const CountdownDisplay = (props) => {
-  const significantSegments = getSignificantSegments(props);
+  const segments = getSignificantSegments(props);
   return (
     <span className={rootClass}>
-      {significantSegments.map(duration => (
+      {segments.map(duration => (
         <CountdownDisplaySegment {...duration} key={duration.unit.name} />
       ))}
     </span>
   )
 };
 
-CountdownDisplay.defaultProps = {
+// This needs to be declared outside of function in order for it to work for 
+// isEqual as well
+CountdownDisplay.defaultProps = { 
   years: 0,
   months: 0,
   days: 0,
@@ -54,14 +56,18 @@ CountdownDisplay.defaultProps = {
   numSegments: 3,
 };
 
-const areEqual = (prevProps, nextProps) => {
-  const prevSignificantSegments = getSignificantSegments(prevProps);
-  const nextSignificantSegments = getSignificantSegments(nextProps);
-  if (prevSignificantSegments.length !== nextSignificantSegments.length) return false;
-  for (let i = prevSignificantSegments.length; i >= 0; i--) {
-    if (!Duration.isEqual(prevSignificantSegments[i], nextSignificantSegments[i])) return false;
+const isEqual = (prevProps, nextProps) => {
+  const prevSegments = getSignificantSegments(prevProps);
+  const nextSegments = getSignificantSegments(nextProps);
+  if (prevSegments.length !== nextSegments.length) {
+    return false;
+  }
+  for (let i = prevSegments.length; i >= 0; i--) {
+    if (!Duration.isEqual(prevSegments[i], nextSegments[i])) {
+      return false;
+    }
   }
   return true;
 }
 
-export default React.memo(CountdownDisplay, areEqual);
+export default React.memo(CountdownDisplay, isEqual);
