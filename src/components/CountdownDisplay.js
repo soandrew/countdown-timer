@@ -33,14 +33,25 @@ const getSignificantSegments = ({
   return allSegments.slice(start, start + numSegments);
 };
 
+const toISODurationString = ({
+  years,
+  months,
+  days,
+  hours,
+  minutes,
+  seconds,
+}) => {
+  return `P${years}Y${months}M${days}DT${hours}H${minutes}M${seconds}S`;
+};
+
 const CountdownDisplay = (props) => {
   const segments = getSignificantSegments(props);
   return (
-    <span className={rootClass}>
+    <time dateTime={toISODurationString(props)} className={rootClass}>
       {segments.map(duration => (
         <CountdownDisplaySegment {...duration} key={duration.unit.name} />
       ))}
-    </span>
+    </time>
   )
 };
 
