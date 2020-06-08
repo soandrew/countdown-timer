@@ -1,6 +1,6 @@
 import React from 'react';
 import CountdownDisplaySegment from 'components/CountdownDisplaySegment';
-import ChronoUnit from 'time/ChronoUnit.js';
+import * as ChronoUnit from 'time/ChronoUnit.js';
 import Duration from 'time/Duration.js';
 import styles from './CountdownDisplay.module.scss';
 

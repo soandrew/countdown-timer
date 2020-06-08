@@ -1,4 +1,10 @@
-const of = (amount, unit) => ({ amount, unit });
+const of = (amount, unit) => ({
+    amount,
+    unit,
+    toMillis() {
+      return this.amount * this.unit.durationInMillis;
+    },
+});
 
 const isEqual = (duration1, duration2) => {
   if (duration1 === duration2) return true;
