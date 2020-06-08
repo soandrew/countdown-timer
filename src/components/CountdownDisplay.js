@@ -15,7 +15,7 @@ const getSignificantSegments = ({
   hours,
   minutes,
   seconds,
-  numSegments,
+  minNumSegments,
 }) => {
   const allSegments = [
     Duration.of(years, ChronoUnit.YEARS),
@@ -27,10 +27,10 @@ const getSignificantSegments = ({
   ];
   // Determine first significant segment
   let start = allSegments.findIndex(({amount}) => amount > 0);
-  if (start === -1 || start + numSegments > allSegments.length) {
-    start = allSegments.length - numSegments;
+  if (start === -1 || start + minNumSegments > allSegments.length) {
+    start = allSegments.length - minNumSegments;
   }
-  return allSegments.slice(start, start + numSegments);
+  return allSegments.slice(start);
 };
 
 const toISODurationString = ({
@@ -64,7 +64,7 @@ CountdownDisplay.defaultProps = {
   hours: 0,
   minutes: 0,
   seconds: 0,
-  numSegments: 3,
+  minNumSegments: 3,
 };
 
 const isEqual = (prevProps, nextProps) => {
