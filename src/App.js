@@ -4,7 +4,7 @@ import CountdownTimer from 'components/CountdownTimer';
 import useQueryParams from 'hooks/useQueryParams';
 
 function App() {
-  const { iso, title = 'Hello, World!' } = useQueryParams();
+  const { iso, title } = useQueryParams();
   return (
     <>
       <CountdownTimer title={title} iso={iso} />

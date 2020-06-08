@@ -1,0 +1,9 @@
+.CountdownTimer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__footer {
+    font-size: 1.15rem;
+  }
+}
