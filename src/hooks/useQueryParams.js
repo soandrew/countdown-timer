@@ -6,7 +6,9 @@ const useQueryParams = ({ getAll = false } = {}) => {
   return useMemo(() => {
     const result = Object.create(null);
     for (const [key, value] of new URLSearchParams(queryString).entries()) {
-      if (result[key] === undefined) {
+      if (value === null || value === '') {
+        continue;
+      } else if (result[key] === undefined) {
         result[key] = getAll ? [value] : value;
       } else if (getAll) {
         result[key].push(value);

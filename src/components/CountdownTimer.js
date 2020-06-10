@@ -1,5 +1,6 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import countdown from 'countdown';
+import moment from 'moment';
 import CountdownDisplay from 'components/CountdownDisplay';
 import styles from './CountdownTimer.module.scss';
 
@@ -13,20 +14,20 @@ const CountdownTimer = ({
   iso,
   title = 'Countdown Timer',
 }) => {
-  const endDate = useMemo(() => new Date(iso), [iso]);
-  const [timeToEndDate, setTimeToEndDate] = useState(countdown(null, endDate));
+  const end = useMemo(() => moment(iso), [iso]);
+  const [durationToEnd, setDurationToEnd] = useState(countdown(null, end.toDate()));
   useEffect(() => {
-    const intervalId = countdown((timespan) => setTimeToEndDate(timespan), endDate);
+    const intervalId = countdown(timespan => setDurationToEnd(timespan), end.toDate());
     return () => clearInterval(intervalId)
-  }, [endDate]);
+  }, [end]);
 
   const {
-    start,  // eslint-disable-line no-unused-vars
-    end,  // eslint-disable-line no-unused-vars
-    units,  // eslint-disable-line no-unused-vars
+    start: _start,
+    end: _end,
+    units: _units,
     value,
     ...countdownDisplayProps
-  } = timeToEndDate;
+  } = durationToEnd;
 
   return (
     <div className={rootClass}>
@@ -35,7 +36,7 @@ const CountdownTimer = ({
         ? <CountdownDisplay {...countdownDisplayProps} />
         : <CountdownDisplay />
       }
-      <span className={footerClass}>until <time dateTime={iso}>{endDate.toString()}</time></span>
+      <span className={footerClass}>until <time dateTime={iso}>{end.format('LLLL')}</time></span>
     </div>
   )
 };
