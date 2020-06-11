@@ -1,4 +1,8 @@
 import React, { useState } from 'react';
+import Button from 'react-bootstrap/Button';
+import Container from 'react-bootstrap/Container';
+import Col from 'react-bootstrap/Col';
+import Form from 'react-bootstrap/Form';
 import { useHistory, useLocation } from 'react-router-dom';
 import moment from 'moment';
 import CountdownTimer from 'components/CountdownTimer';
@@ -28,54 +32,48 @@ const CreateCountdown = ({ now = moment() }) => {
   }
 
   return (
-    <div className="container">
+    <Container>
       <CountdownTimer
         iso={`${endDate}T${endTime}`}
         title={title || CountdownTimer.defaultProps.title}
       />
-      <form autoComplete="off" onSubmit={handleSubmit}>
-        <div className="form-group">
-          <label htmlFor="title">Title</label>
-          <input
-              id="title"
+      <Form autoComplete="off" onSubmit={handleSubmit}>
+        <Form.Group controlId="title">
+          <Form.Label>Title</Form.Label>
+          <Form.Control
               type="text"
               name="title"
-              value={values.title}
+              value={title}
               placeholder={CountdownTimer.defaultProps.title}
               onChange={handleChange}
-              className="form-control"
           />
-        </div>
-        <div className="form-row">
-          <div className="form-group col">
-            <label htmlFor="endDate">Date</label>
-            <input
-                id="endDate"
+        </Form.Group>
+        <Form.Row>
+          <Form.Group as={Col} controlId="endDate">
+            <Form.Label>Date</Form.Label>
+            <Form.Control
                 type="date"
                 name="endDate"
-                value={values.endDate}
+                value={endDate}
                 required
                 onChange={handleChange}
-                className="form-control"
             />
-          </div>
-          <div className="form-group col">
-            <label htmlFor="endTime">Time</label>
-            <input
-                id="endTime"
+          </Form.Group>
+          <Form.Group as={Col} controlId="endTime">
+            <Form.Label>Time</Form.Label>
+            <Form.Control
                 type="time"
                 step={60 * 5}
                 name="endTime"
                 value={values.endTime}
                 required
                 onChange={handleChange}
-                className="form-control"
             />
-          </div>
-        </div>
-        <button type="submit" className="btn btn-primary">Create</button>
-      </form>
-    </div>
+          </Form.Group>
+        </Form.Row>
+        <Button type="submit" variant="primary" block>Create your countdown</Button>
+      </Form>
+    </Container>
   );
 };
 
