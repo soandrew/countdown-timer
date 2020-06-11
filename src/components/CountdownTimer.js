@@ -12,7 +12,7 @@ const {
 
 const CountdownTimer = ({
   iso,
-  title = 'Countdown Timer',
+  title,
 }) => {
   const end = useMemo(() => moment(iso), [iso]);
   const [durationToEnd, setDurationToEnd] = useState(countdown(null, end.toDate()));
@@ -39,6 +39,12 @@ const CountdownTimer = ({
       <span className={footerClass}>until <time dateTime={iso}>{end.format('LLLL')}</time></span>
     </div>
   )
+};
+
+// Declared outside of function in order for its values to be used elsewhere
+CountdownTimer.defaultProps = {
+  iso: moment.invalid(),
+  title: 'Countdown Timer',
 };
 
 export default CountdownTimer;
