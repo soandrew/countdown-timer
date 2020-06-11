@@ -1,4 +1,5 @@
 import React from 'react';
+import moment from 'moment';
 import styles from './CountdownDisplaySegment.module.scss';
 
 const {
@@ -10,12 +11,13 @@ const {
 
 const CountdownDisplaySegment = ({ amount, unit, numDigits = 2 }) => {
   const digits = String(amount).padStart(numDigits, '0').split('');
+  const unitSingular = moment.normalizeUnits(unit);
   return (
     <span className={rootClass}>
       <span className={amountClass}>
         {digits.map((ele, idx) => <span className={digitClass} key={idx}>{ele}</span>)}
       </span>
-      <span className={unitClass}>{amount === 1 ? unit.name : unit.namePlural}</span>
+      <span className={unitClass}>{amount === 1 ? unitSingular : `${unitSingular}s`}</span>
     </span>
   );
 };

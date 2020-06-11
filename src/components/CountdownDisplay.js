@@ -1,7 +1,7 @@
 import React from 'react';
 import CountdownDisplaySegment from 'components/CountdownDisplaySegment';
-import * as ChronoUnit from 'time/ChronoUnit.js';
-import Duration from 'time/Duration.js';
+import _ from 'lodash/core';
+import moment from 'moment';
 import styles from './CountdownDisplay.module.scss';
 
 const {
@@ -18,38 +18,27 @@ const getSignificantSegments = ({
   minNumSegments,
 }) => {
   const allSegments = [
-    Duration.of(years, ChronoUnit.YEARS),
-    Duration.of(months, ChronoUnit.MONTHS),
-    Duration.of(days, ChronoUnit.DAYS),
-    Duration.of(hours, ChronoUnit.HOURS),
-    Duration.of(minutes, ChronoUnit.MINUTES),
-    Duration.of(seconds, ChronoUnit.SECONDS),
+    [years, 'years'],
+    [months, 'months'],
+    [days, 'days'],
+    [hours, 'hours'],
+    [minutes, 'minutes'],
+    [seconds, 'seconds'],
   ];
   // Determine first significant segment
-  let start = allSegments.findIndex(({amount}) => amount > 0);
+  let start = allSegments.findIndex(([amount]) => amount > 0);
   if (start === -1 || start + minNumSegments > allSegments.length) {
     start = allSegments.length - minNumSegments;
   }
   return allSegments.slice(start);
 };
 
-const toISODurationString = ({
-  years,
-  months,
-  days,
-  hours,
-  minutes,
-  seconds,
-}) => {
-  return `P${years}Y${months}M${days}DT${hours}H${minutes}M${seconds}S`;
-};
-
 const CountdownDisplay = (props) => {
   const segments = getSignificantSegments(props);
   return (
-    <time dateTime={toISODurationString(props)} className={rootClass}>
-      {segments.map(duration => (
-        <CountdownDisplaySegment {...duration} key={duration.unit.name} />
+    <time dateTime={moment.duration(props).toISOString()} className={rootClass}>
+      {segments.map(([amount, unit]) => (
+        <CountdownDisplaySegment amount={amount} unit={unit} key={unit} />
       ))}
     </time>
   )
@@ -70,15 +59,7 @@ CountdownDisplay.defaultProps = {
 const isEqual = (prevProps, nextProps) => {
   const prevSegments = getSignificantSegments(prevProps);
   const nextSegments = getSignificantSegments(nextProps);
-  if (prevSegments.length !== nextSegments.length) {
-    return false;
-  }
-  for (let i = prevSegments.length; i >= 0; i--) {
-    if (!Duration.isEqual(prevSegments[i], nextSegments[i])) {
-      return false;
-    }
-  }
-  return true;
+  return _.isEqual(prevSegments, nextSegments);
 }
 
 export default React.memo(CountdownDisplay, isEqual);

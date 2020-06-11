@@ -1,13 +1,13 @@
 import React from 'react';
 import moment from 'moment';
 import CountdownTimer from 'components/CountdownTimer';
-import { MINUTES } from 'time/ChronoUnit';
-import Duration from 'time/Duration';
+
+const ONE_MINUTE = moment.duration(1, 'minute').asMilliseconds();
 
 const Home = ({ now = moment() }) => {
-  const prevNewYearDay = moment({ year: now.year(), month: 0, date: 1 });
+  const prevNewYearDay = moment(now).startOf('year');
   const newYearDay = moment(prevNewYearDay).add(1, 'year');
-  const iso = (now.diff(prevNewYearDay) < Duration.of(1, MINUTES).toMillis()
+  const iso = (now.diff(prevNewYearDay) < ONE_MINUTE
     ? prevNewYearDay
     : newYearDay
   ).toISOString();
