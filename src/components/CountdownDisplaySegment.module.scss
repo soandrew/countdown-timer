@@ -1,34 +1,63 @@
 @import '~bootstrap/scss/functions';
 @import '~bootstrap/scss/variables';
+@import '~bootstrap/scss/mixins';
 
 .CountdownDisplaySegment {
   $root: &;
 
-  display: flex;
-  flex-direction: column;
-  font-size: 5rem;
+  display: inline-flex;
+  font-size: 2rem;
 
-  &__digit {
-    display: inline-block;
-    padding: .25em;
-    background-color: gray("200");
-    border-radius: .125em;
-
-    &:not(:last-child) {
-      margin-right: .125em;
-    }
+  &__amount {
+    flex: 1;
+    margin-right: .5em;
+    text-align: right;
   }
 
   &__unit {
-    font-size: .5em;
+    flex: 1;
   }
 
-  &:not(:last-child) {
-    #{$root}__amount {
-      &::after {
-        content: ':';
-        padding: 0 .125em;
+  @include media-breakpoint-up(sm) {
+    flex-flow: column;
+    font-size: 3rem;
+
+    &__amount {
+      margin-right: unset;
+      text-align: unset;
+
+      // Add colon in between segments
+      #{$root}:not(:last-of-type):not(:nth-last-of-type(4)) &,
+      #{$root}:not(:last-of-type):first-of-type & {
+        &::after {
+          content: ':';
+          display: inline-block;
+          margin: 0 .125em;
+        }
       }
     }
+
+    &__digit {
+      display: inline-block;
+      padding: .25em;
+      background-color: gray("200");
+      border-radius: .125em;
+
+      &:not(:last-child) {
+        margin-right: .125em;
+      }
+    }
+
+    &__unit {
+      font-size: .5em;
+    }
+  }
+
+  @include media-breakpoint-up(lg) {
+    font-size: 4rem;
+  }
+
+  @include media-breakpoint-up(xl) {
+    font-size: 5rem;
   }
 }

@@ -1,3 +1,26 @@
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
+@import '~bootstrap/scss/mixins';
+
 .CountdownDisplay {
-  display: flex;
+  display: inline-flex;
+  width: 100%;
+  flex-flow: column;
+
+  &__break {
+    display: none;
+  }
+
+  @include media-breakpoint-up(sm) {
+    flex-flow: row wrap;
+    justify-content: center;
+
+    &__break {
+      display: block;
+      flex: 100%;
+      margin-top: .25rem;
+      margin-bottom: .25rem;
+      border: none;
+    }
+  }
 }

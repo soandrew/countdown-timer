@@ -8,6 +8,8 @@ import moment from 'moment';
 import CountdownTimer from 'components/CountdownTimer';
 import { roundUpToNearest } from 'math';
 
+const FIVE_MINUTES = moment.duration(5, 'minutes').asSeconds();
+
 const CreateCountdown = ({ now = moment() }) => {
   const location = useLocation();
   const history = useHistory();
@@ -63,7 +65,7 @@ const CreateCountdown = ({ now = moment() }) => {
             <Form.Label>Time</Form.Label>
             <Form.Control
                 type="time"
-                step={60 * 5}
+                step={FIVE_MINUTES}
                 name="endTime"
                 value={values.endTime}
                 required

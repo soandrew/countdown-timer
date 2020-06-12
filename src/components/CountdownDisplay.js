@@ -6,6 +6,7 @@ import styles from './CountdownDisplay.module.scss';
 
 const {
   CountdownDisplay: rootClass,
+  CountdownDisplay__break:  breakClass,
 } = styles;
 
 const getSignificantSegments = ({
@@ -34,12 +35,14 @@ const getSignificantSegments = ({
 };
 
 const CountdownDisplay = (props) => {
-  const segments = getSignificantSegments(props);
+  const children = getSignificantSegments(props).map(([amount, unit]) => (
+    <CountdownDisplaySegment amount={amount} unit={unit} key={unit} />
+  ));
+  // Split into date and time segments
+  if (children.length > 4) children.splice(-3, 0, <hr className={breakClass}/>);
   return (
     <time dateTime={moment.duration(props).toISOString()} className={rootClass}>
-      {segments.map(([amount, unit]) => (
-        <CountdownDisplaySegment amount={amount} unit={unit} key={unit} />
-      ))}
+      {children}
     </time>
   )
 };
