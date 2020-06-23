@@ -4,9 +4,9 @@ import {
   Route,
   Switch,
 } from 'react-router-dom';
-import CreateCountdown from 'components/CreateCountdown';
-import DisplayCountdown from 'components/DisplayCountdown';
-import Home from 'components/Home';
+import CreateCountdown from 'pages/CreateCountdown';
+import DisplayCountdown from 'pages/DisplayCountdown';
+import Home from 'pages/Home';
 
 function App() {
   return (
