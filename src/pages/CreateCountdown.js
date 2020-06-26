@@ -4,7 +4,7 @@ import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import { useHistory, useLocation } from 'react-router-dom';
-import _ from 'lodash';
+import _ from 'lodash/core';
 import moment from 'moment-timezone';
 import CountdownTimer from 'components/CountdownTimer';
 import { roundUpToNearest } from 'math';
@@ -14,8 +14,9 @@ import locationForZone from 'static/locationForZone';
 const FIVE_MINUTES = moment.duration(5, 'minutes');
 
 const ZONES = _.chain(moment.tz.countries())
-  .flatMap(country => moment.tz.zonesForCountry(country))
-  .uniq()
+  .map(country => moment.tz.zonesForCountry(country))
+  .flatten()
+  .thru(arr => [...new Set(arr)])
   .map(zone => {
     const { city, country } = locationForZone[zone];
     return {
@@ -24,7 +25,7 @@ const ZONES = _.chain(moment.tz.countries())
       country: countries[country],
     };
   })
-  .tap(it => it.sort((a, b) => {
+  .tap(arr => arr.sort((a, b) => {
     return (a.country.localeCompare(b.country)
       || a.city.localeCompare(b.city)
     );

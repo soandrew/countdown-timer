@@ -1,6 +1,6 @@
 import React from 'react';
 import CountdownDisplaySegment from 'components/CountdownDisplaySegment';
-import _ from 'lodash/core';
+import isEqual from 'lodash/isEqual';
 import moment from 'moment';
 import styles from './CountdownDisplay.module.scss';
 
@@ -48,7 +48,7 @@ const CountdownDisplay = (props) => {
 };
 
 // This needs to be declared outside of function in order for it to work for 
-// isEqual as well
+// areEqual as well
 CountdownDisplay.defaultProps = { 
   years: 0,
   months: 0,
@@ -59,10 +59,10 @@ CountdownDisplay.defaultProps = {
   minNumSegments: 3,
 };
 
-const isEqual = (prevProps, nextProps) => {
+const areEqual = (prevProps, nextProps) => {
   const prevSegments = getSignificantSegments(prevProps);
   const nextSegments = getSignificantSegments(nextProps);
-  return _.isEqual(prevSegments, nextSegments);
+  return isEqual(prevSegments, nextSegments);
 }
 
-export default React.memo(CountdownDisplay, isEqual);
+export default React.memo(CountdownDisplay, areEqual);
