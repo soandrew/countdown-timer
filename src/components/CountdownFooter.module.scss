@@ -1,0 +1,12 @@
+.CountdownFooter {
+  font-size: 1.15rem;
+
+  &__time {
+    font-weight: 600;
+  }
+
+  &__zone {
+    font-weight: 600;
+    text-underline-position: under;
+  }
+}

@@ -1,20 +1,22 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import countdown from 'countdown';
-import moment from 'moment';
+import moment from 'moment-timezone';
 import CountdownDisplay from 'components/CountdownDisplay';
+import CountdownFooter from 'components/CountdownFooter';
+import locationForZone from 'static/locationForZone';
 import styles from './CountdownTimer.module.scss';
 
 const {
   CountdownTimer: rootClass,
   CountdownTimer__title: titleClass,
-  CountdownTimer__footer: footerClass,
 } = styles;
 
 const CountdownTimer = ({
-  iso,
-  title,
+  iso = moment.invalid().toISOString(),
+  zone = 'UTC',
+  title = 'Countdown Timer',
 }) => {
-  const end = useMemo(() => moment(iso), [iso]);
+  const end = useMemo(() => moment.tz(iso, zone), [iso, zone]);
   const [durationToEnd, setDurationToEnd] = useState(countdown(null, end.toDate()));
   useEffect(() => {
     const intervalId = countdown(timespan => setDurationToEnd(timespan), end.toDate());
@@ -36,15 +38,9 @@ const CountdownTimer = ({
         ? <CountdownDisplay {...countdownDisplayProps} />
         : <CountdownDisplay />
       }
-      <span className={footerClass}>until <time dateTime={iso}>{end.format('LLLL')}</time></span>
+      <CountdownFooter end={end} location={locationForZone[zone]} />
     </div>
   )
-};
-
-// Declared outside of function in order for its values to be used elsewhere
-CountdownTimer.defaultProps = {
-  iso: moment.invalid(),
-  title: 'Countdown Timer',
 };
 
 export default CountdownTimer;

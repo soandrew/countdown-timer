@@ -4,22 +4,46 @@ import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import { useHistory, useLocation } from 'react-router-dom';
-import moment from 'moment';
+import _ from 'lodash';
+import moment from 'moment-timezone';
 import CountdownTimer from 'components/CountdownTimer';
 import { roundUpToNearest } from 'math';
+import countries from 'static/countries';
+import locationForZone from 'static/locationForZone';
 
-const FIVE_MINUTES = moment.duration(5, 'minutes').asSeconds();
+const FIVE_MINUTES = moment.duration(5, 'minutes');
+
+const ZONES = _.chain(moment.tz.countries())
+  .flatMap(country => moment.tz.zonesForCountry(country))
+  .uniq()
+  .map(zone => {
+    const { city, country } = locationForZone[zone];
+    return {
+      name: zone,
+      city: city,
+      country: countries[country],
+    };
+  })
+  .tap(it => it.sort((a, b) => {
+    return (a.country.localeCompare(b.country)
+      || a.city.localeCompare(b.city)
+    );
+  }))
+  .value();
 
 const CreateCountdown = ({ now = moment() }) => {
   const location = useLocation();
   const history = useHistory();
+  const defaultTitle = 'Countdown Timer';
+  const defaultZone = 'UTC';
   const defaultEnd = moment(now).minutes(roundUpToNearest(5, now.minutes()));
   const [values, setValues] = useState(Object.assign({
     endDate: defaultEnd.format(moment.HTML5_FMT.DATE),  // YYYY-MM-DD
     endTime: defaultEnd.format(moment.HTML5_FMT.TIME),  // HH:mm
-    title: '',
+    zone: moment.tz.guess() || defaultZone,
+    title: defaultTitle,
   }, location.state));  // Restore state from history or use defaults
-  const { endDate, endTime, title } = values;
+  const { endDate, endTime, zone, title } = values;
 
   const handleChange = ({ target: { name, value } }) => {
     setValues({ ...values, [name]: value });
@@ -28,16 +52,16 @@ const CreateCountdown = ({ now = moment() }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     history.replace(location.pathname, values);  // Save state in history
-    const iso = moment(`${endDate} ${endTime}`).format('YYYYMMDDTHHmm');
-    const search = new URLSearchParams({ iso, title });
-    history.push(`/display?${search}`);
+    const iso = moment(`${endDate}T${endTime}`).format('YYYYMMDDTHHmm');
+    history.push(`/display?${new URLSearchParams({ iso, zone, title })}`);
   }
 
   return (
     <Container>
       <CountdownTimer
         iso={`${endDate}T${endTime}`}
-        title={title || CountdownTimer.defaultProps.title}
+        zone={zone || defaultZone}
+        title={title || defaultTitle}
       />
       <Form autoComplete="off" onSubmit={handleSubmit}>
         <Form.Group controlId="title">
@@ -45,8 +69,8 @@ const CreateCountdown = ({ now = moment() }) => {
           <Form.Control
               type="text"
               name="title"
-              value={title}
-              placeholder={CountdownTimer.defaultProps.title}
+              value={title !== defaultTitle ? title : ''}
+              placeholder={defaultTitle}
               onChange={handleChange}
           />
         </Form.Group>
@@ -65,14 +89,34 @@ const CreateCountdown = ({ now = moment() }) => {
             <Form.Label>Time</Form.Label>
             <Form.Control
                 type="time"
-                step={FIVE_MINUTES}
+                step={FIVE_MINUTES.asSeconds()}
                 name="endTime"
-                value={values.endTime}
+                value={endTime}
                 required
                 onChange={handleChange}
             />
           </Form.Group>
         </Form.Row>
+        <Form.Group controlId="zone">
+          <Form.Label>Time Zone</Form.Label>
+          <Form.Control
+            type="text"
+            name="zone"
+            value={zone !== defaultZone ? zone : ''}
+            placeholder={defaultZone}
+            list="zone-list"
+            aria-describedby="zone-help"
+            onChange={handleChange}
+          />
+          <datalist id="zone-list">
+            {ZONES.map(({name, city, country}) => (
+              <option key={name} value={name}>{`${city}, ${country}`}</option>
+            ))}
+          </datalist>
+          <Form.Text id="zone-help" className="text-muted">
+            Start typing a city or country
+          </Form.Text>
+        </Form.Group>
         <Button type="submit" variant="primary" block>Create your countdown</Button>
       </Form>
     </Container>

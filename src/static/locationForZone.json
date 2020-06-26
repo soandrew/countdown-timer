@@ -1,0 +1,1702 @@
+{
+  "Africa/Abidjan": {
+    "city": "Abidjan",
+    "country": "CI"
+  },
+  "Africa/Accra": {
+    "city": "Accra",
+    "country": "GH"
+  },
+  "Africa/Addis_Ababa": {
+    "city": "Addis Ababa",
+    "country": "ET"
+  },
+  "Africa/Algiers": {
+    "city": "Algiers",
+    "country": "DZ"
+  },
+  "Africa/Asmara": {
+    "city": "Asmara",
+    "country": "ER"
+  },
+  "Africa/Bamako": {
+    "city": "Bamako",
+    "country": "ML"
+  },
+  "Africa/Bangui": {
+    "city": "Bangui",
+    "country": "CF"
+  },
+  "Africa/Banjul": {
+    "city": "Banjul",
+    "country": "GM"
+  },
+  "Africa/Bissau": {
+    "city": "Bissau",
+    "country": "GW"
+  },
+  "Africa/Blantyre": {
+    "city": "Blantyre",
+    "country": "MW"
+  },
+  "Africa/Brazzaville": {
+    "city": "Brazzaville",
+    "country": "CG"
+  },
+  "Africa/Bujumbura": {
+    "city": "Bujumbura",
+    "country": "BI"
+  },
+  "Africa/Cairo": {
+    "city": "Cairo",
+    "country": "EG"
+  },
+  "Africa/Casablanca": {
+    "city": "Casablanca",
+    "country": "MA"
+  },
+  "Africa/Ceuta": {
+    "city": "Ceuta",
+    "country": "ES"
+  },
+  "Africa/Conakry": {
+    "city": "Conakry",
+    "country": "GN"
+  },
+  "Africa/Dakar": {
+    "city": "Dakar",
+    "country": "SN"
+  },
+  "Africa/Dar_es_Salaam": {
+    "city": "Dar es Salaam",
+    "country": "TZ"
+  },
+  "Africa/Djibouti": {
+    "city": "Djibouti City",
+    "country": "DJ"
+  },
+  "Africa/Douala": {
+    "city": "Douala",
+    "country": "CM"
+  },
+  "Africa/El_Aaiun": {
+    "city": "El Aaiun",
+    "country": "EH"
+  },
+  "Africa/Freetown": {
+    "city": "Freetown",
+    "country": "SL"
+  },
+  "Africa/Gaborone": {
+    "city": "Gaborone",
+    "country": "BW"
+  },
+  "Africa/Harare": {
+    "city": "Harare",
+    "country": "ZW"
+  },
+  "Africa/Johannesburg": {
+    "city": "Johannesburg",
+    "country": "ZA"
+  },
+  "Africa/Juba": {
+    "city": "Juba",
+    "country": "SS"
+  },
+  "Africa/Kampala": {
+    "city": "Kampala",
+    "country": "UG"
+  },
+  "Africa/Khartoum": {
+    "city": "Khartoum",
+    "country": "SD"
+  },
+  "Africa/Kigali": {
+    "city": "Kigali",
+    "country": "RW"
+  },
+  "Africa/Kinshasa": {
+    "city": "Kinshasa",
+    "country": "CD"
+  },
+  "Africa/Lagos": {
+    "city": "Lagos",
+    "country": "NG"
+  },
+  "Africa/Libreville": {
+    "city": "Libreville",
+    "country": "GA"
+  },
+  "Africa/Lome": {
+    "city": "Lome",
+    "country": "TG"
+  },
+  "Africa/Luanda": {
+    "city": "Luanda",
+    "country": "AO"
+  },
+  "Africa/Lubumbashi": {
+    "city": "Lubumbashi",
+    "country": "CD"
+  },
+  "Africa/Lusaka": {
+    "city": "Lusaka",
+    "country": "ZM"
+  },
+  "Africa/Malabo": {
+    "city": "Malabo",
+    "country": "GQ"
+  },
+  "Africa/Maputo": {
+    "city": "Maputo",
+    "country": "MZ"
+  },
+  "Africa/Maseru": {
+    "city": "Maseru",
+    "country": "LS"
+  },
+  "Africa/Mbabane": {
+    "city": "Mbabane",
+    "country": "SZ"
+  },
+  "Africa/Mogadishu": {
+    "city": "Mogadishu",
+    "country": "SO"
+  },
+  "Africa/Monrovia": {
+    "city": "Monrovia",
+    "country": "LR"
+  },
+  "Africa/Nairobi": {
+    "city": "Nairobi",
+    "country": "KE"
+  },
+  "Africa/Ndjamena": {
+    "city": "Ndjamena",
+    "country": "TD"
+  },
+  "Africa/Niamey": {
+    "city": "Niamey",
+    "country": "NE"
+  },
+  "Africa/Nouakchott": {
+    "city": "Nouakchott",
+    "country": "MR"
+  },
+  "Africa/Ouagadougou": {
+    "city": "Ouagadougou",
+    "country": "BF"
+  },
+  "Africa/Porto-Novo": {
+    "city": "Porto-Novo",
+    "country": "BJ"
+  },
+  "Africa/Sao_Tome": {
+    "city": "Sao Tome",
+    "country": "ST"
+  },
+  "Africa/Tripoli": {
+    "city": "Tripoli",
+    "country": "LY"
+  },
+  "Africa/Tunis": {
+    "city": "Tunis",
+    "country": "TN"
+  },
+  "Africa/Windhoek": {
+    "city": "Windhoek",
+    "country": "NA"
+  },
+  "America/Adak": {
+    "city": "Adak",
+    "country": "US"
+  },
+  "America/Anchorage": {
+    "city": "Anchorage",
+    "country": "US"
+  },
+  "America/Anguilla": {
+    "city": "The Valley",
+    "country": "AI"
+  },
+  "America/Antigua": {
+    "city": "St John's",
+    "country": "AG"
+  },
+  "America/Araguaina": {
+    "city": "Araguaina",
+    "country": "BR"
+  },
+  "America/Argentina/Buenos_Aires": {
+    "city": "Buenos Aires",
+    "country": "AR"
+  },
+  "America/Argentina/Catamarca": {
+    "city": "Catamarca",
+    "country": "AR"
+  },
+  "America/Argentina/Cordoba": {
+    "city": "Cordoba",
+    "country": "AR"
+  },
+  "America/Argentina/Jujuy": {
+    "city": "Jujuy",
+    "country": "AR"
+  },
+  "America/Argentina/La_Rioja": {
+    "city": "La Rioja",
+    "country": "AR"
+  },
+  "America/Argentina/Mendoza": {
+    "city": "Mendoza",
+    "country": "AR"
+  },
+  "America/Argentina/Rio_Gallegos": {
+    "city": "Rio Gallegos",
+    "country": "AR"
+  },
+  "America/Argentina/Salta": {
+    "city": "Salta",
+    "country": "AR"
+  },
+  "America/Argentina/San_Juan": {
+    "city": "San Juan",
+    "country": "AR"
+  },
+  "America/Argentina/San_Luis": {
+    "city": "San Luis",
+    "country": "AR"
+  },
+  "America/Argentina/Tucuman": {
+    "city": "Tucuman",
+    "country": "AR"
+  },
+  "America/Argentina/Ushuaia": {
+    "city": "Ushuaia",
+    "country": "AR"
+  },
+  "America/Aruba": {
+    "city": "Oranjestad",
+    "country": "AW"
+  },
+  "America/Asuncion": {
+    "city": "Asuncion",
+    "country": "PY"
+  },
+  "America/Atikokan": {
+    "city": "Atikokan",
+    "country": "CA"
+  },
+  "America/Bahia": {
+    "city": "Bahia",
+    "country": "BR"
+  },
+  "America/Bahia_Banderas": {
+    "city": "Bahia Banderas",
+    "country": "MX"
+  },
+  "America/Barbados": {
+    "city": "Bridgetown",
+    "country": "BB"
+  },
+  "America/Belem": {
+    "city": "Belem",
+    "country": "BR"
+  },
+  "America/Belize": {
+    "city": "Belize City",
+    "country": "BZ"
+  },
+  "America/Blanc-Sablon": {
+    "city": "Blanc-Sablon",
+    "country": "CA"
+  },
+  "America/Boa_Vista": {
+    "city": "Boa Vista",
+    "country": "BR"
+  },
+  "America/Bogota": {
+    "city": "Bogota",
+    "country": "CO"
+  },
+  "America/Boise": {
+    "city": "Boise",
+    "country": "US"
+  },
+  "America/Cambridge_Bay": {
+    "city": "Cambridge Bay",
+    "country": "CA"
+  },
+  "America/Campo_Grande": {
+    "city": "Campo Grande",
+    "country": "BR"
+  },
+  "America/Cancun": {
+    "city": "Cancun",
+    "country": "MX"
+  },
+  "America/Caracas": {
+    "city": "Caracas",
+    "country": "VE"
+  },
+  "America/Cayenne": {
+    "city": "Cayenne",
+    "country": "GF"
+  },
+  "America/Cayman": {
+    "city": "Cayman",
+    "country": "KY"
+  },
+  "America/Chicago": {
+    "city": "Chicago",
+    "country": "US"
+  },
+  "America/Chihuahua": {
+    "city": "Chihuahua",
+    "country": "MX"
+  },
+  "America/Costa_Rica": {
+    "city": "San Jose",
+    "country": "CR"
+  },
+  "America/Creston": {
+    "city": "Creston",
+    "country": "CA"
+  },
+  "America/Cuiaba": {
+    "city": "Cuiaba",
+    "country": "BR"
+  },
+  "America/Curacao": {
+    "city": "Willemstad",
+    "country": "CW"
+  },
+  "America/Danmarkshavn": {
+    "city": "Danmarkshavn",
+    "country": "GL"
+  },
+  "America/Dawson": {
+    "city": "Dawson",
+    "country": "CA"
+  },
+  "America/Dawson_Creek": {
+    "city": "Dawson Creek",
+    "country": "CA"
+  },
+  "America/Denver": {
+    "city": "Denver",
+    "country": "US"
+  },
+  "America/Detroit": {
+    "city": "Detroit",
+    "country": "US"
+  },
+  "America/Dominica": {
+    "city": "Roseau",
+    "country": "DM"
+  },
+  "America/Edmonton": {
+    "city": "Edmonton",
+    "country": "CA"
+  },
+  "America/Eirunepe": {
+    "city": "Eirunepe",
+    "country": "BR"
+  },
+  "America/El_Salvador": {
+    "city": "San Salvador",
+    "country": "SV"
+  },
+  "America/Fort_Nelson": {
+    "city": "Fort Nelson",
+    "country": "CA"
+  },
+  "America/Fortaleza": {
+    "city": "Fortaleza",
+    "country": "BR"
+  },
+  "America/Glace_Bay": {
+    "city": "Glace Bay",
+    "country": "CA"
+  },
+  "America/Goose_Bay": {
+    "city": "Goose Bay",
+    "country": "CA"
+  },
+  "America/Grand_Turk": {
+    "city": "Grand Turk",
+    "country": "TC"
+  },
+  "America/Grenada": {
+    "city": "St Georges",
+    "country": "GD"
+  },
+  "America/Guadeloupe": {
+    "city": "Pointe-à-Pitre",
+    "country": "GP"
+  },
+  "America/Guatemala": {
+    "city": "Guatemala City",
+    "country": "GT"
+  },
+  "America/Guayaquil": {
+    "city": "Guayaquil",
+    "country": "EC"
+  },
+  "America/Guyana": {
+    "city": "Georgetown",
+    "country": "GY"
+  },
+  "America/Halifax": {
+    "city": "Halifax",
+    "country": "CA"
+  },
+  "America/Havana": {
+    "city": "Havana",
+    "country": "CU"
+  },
+  "America/Hermosillo": {
+    "city": "Hermosillo",
+    "country": "MX"
+  },
+  "America/Indiana/Indianapolis": {
+    "city": "Indianapolis",
+    "country": "US"
+  },
+  "America/Indiana/Knox": {
+    "city": "Knox",
+    "country": "US"
+  },
+  "America/Indiana/Marengo": {
+    "city": "Marengo",
+    "country": "US"
+  },
+  "America/Indiana/Petersburg": {
+    "city": "Petersburg",
+    "country": "US"
+  },
+  "America/Indiana/Tell_City": {
+    "city": "Tell City",
+    "country": "US"
+  },
+  "America/Indiana/Vevay": {
+    "city": "Vevay",
+    "country": "US"
+  },
+  "America/Indiana/Vincennes": {
+    "city": "Vincennes",
+    "country": "US"
+  },
+  "America/Indiana/Winamac": {
+    "city": "Winamac",
+    "country": "US"
+  },
+  "America/Inuvik": {
+    "city": "Inuvik",
+    "country": "CA"
+  },
+  "America/Iqaluit": {
+    "city": "Iqaluit",
+    "country": "CA"
+  },
+  "America/Jamaica": {
+    "city": "Kingston",
+    "country": "JM"
+  },
+  "America/Juneau": {
+    "city": "Juneau",
+    "country": "US"
+  },
+  "America/Kentucky/Louisville": {
+    "city": "Louisville",
+    "country": "US"
+  },
+  "America/Kentucky/Monticello": {
+    "city": "Monticello",
+    "country": "US"
+  },
+  "America/Kralendijk": {
+    "city": "Kralendijk",
+    "country": "BQ"
+  },
+  "America/La_Paz": {
+    "city": "La Paz",
+    "country": "BO"
+  },
+  "America/Lima": {
+    "city": "Lima",
+    "country": "PE"
+  },
+  "America/Los_Angeles": {
+    "city": "Los Angeles",
+    "country": "US"
+  },
+  "America/Lower_Princes": {
+    "city": "Lower Princes",
+    "country": "SX"
+  },
+  "America/Maceio": {
+    "city": "Maceio",
+    "country": "BR"
+  },
+  "America/Managua": {
+    "city": "Managua",
+    "country": "NI"
+  },
+  "America/Manaus": {
+    "city": "Manaus",
+    "country": "BR"
+  },
+  "America/Marigot": {
+    "city": "Marigot",
+    "country": "MF"
+  },
+  "America/Martinique": {
+    "city": "Fort-de-France",
+    "country": "MQ"
+  },
+  "America/Matamoros": {
+    "city": "Matamoros",
+    "country": "MX"
+  },
+  "America/Mazatlan": {
+    "city": "Mazatlan",
+    "country": "MX"
+  },
+  "America/Menominee": {
+    "city": "Menominee",
+    "country": "US"
+  },
+  "America/Merida": {
+    "city": "Merida",
+    "country": "MX"
+  },
+  "America/Metlakatla": {
+    "city": "Metlakatla",
+    "country": "US"
+  },
+  "America/Mexico_City": {
+    "city": "Mexico City",
+    "country": "MX"
+  },
+  "America/Miquelon": {
+    "city": "Saint-Pierre",
+    "country": "PM"
+  },
+  "America/Moncton": {
+    "city": "Moncton",
+    "country": "CA"
+  },
+  "America/Monterrey": {
+    "city": "Monterrey",
+    "country": "MX"
+  },
+  "America/Montevideo": {
+    "city": "Montevideo",
+    "country": "UY"
+  },
+  "America/Montserrat": {
+    "city": "Brades",
+    "country": "MS"
+  },
+  "America/Nassau": {
+    "city": "Nassau",
+    "country": "BS"
+  },
+  "America/New_York": {
+    "city": "New York",
+    "country": "US"
+  },
+  "America/Nipigon": {
+    "city": "Nipigon",
+    "country": "CA"
+  },
+  "America/Nome": {
+    "city": "Nome",
+    "country": "US"
+  },
+  "America/Noronha": {
+    "city": "Noronha",
+    "country": "BR"
+  },
+  "America/North_Dakota/Beulah": {
+    "city": "Beulah",
+    "country": "US"
+  },
+  "America/North_Dakota/Center": {
+    "city": "Center",
+    "country": "US"
+  },
+  "America/North_Dakota/New_Salem": {
+    "city": "New Salem",
+    "country": "US"
+  },
+  "America/Nuuk": {
+    "city": "Nuuk",
+    "country": "GL"
+  },
+  "America/Ojinaga": {
+    "city": "Ojinaga",
+    "country": "MX"
+  },
+  "America/Panama": {
+    "city": "Panama City",
+    "country": "PA"
+  },
+  "America/Pangnirtung": {
+    "city": "Pangnirtung",
+    "country": "CA"
+  },
+  "America/Paramaribo": {
+    "city": "Paramaribo",
+    "country": "SR"
+  },
+  "America/Phoenix": {
+    "city": "Phoenix",
+    "country": "US"
+  },
+  "America/Port_of_Spain": {
+    "city": "Port of Spain",
+    "country": "TT"
+  },
+  "America/Port-au-Prince": {
+    "city": "Port-au-Prince",
+    "country": "HT"
+  },
+  "America/Porto_Velho": {
+    "city": "Porto Velho",
+    "country": "BR"
+  },
+  "America/Puerto_Rico": {
+    "city": "San Juan",
+    "country": "PR"
+  },
+  "America/Punta_Arenas": {
+    "city": "Punta Arenas",
+    "country": "CL"
+  },
+  "America/Rainy_River": {
+    "city": "Rainy River",
+    "country": "CA"
+  },
+  "America/Rankin_Inlet": {
+    "city": "Rankin Inlet",
+    "country": "CA"
+  },
+  "America/Recife": {
+    "city": "Recife",
+    "country": "BR"
+  },
+  "America/Regina": {
+    "city": "Regina",
+    "country": "CA"
+  },
+  "America/Resolute": {
+    "city": "Resolute",
+    "country": "CA"
+  },
+  "America/Rio_Branco": {
+    "city": "Rio Branco",
+    "country": "BR"
+  },
+  "America/Santarem": {
+    "city": "Santarem",
+    "country": "BR"
+  },
+  "America/Santiago": {
+    "city": "Santiago",
+    "country": "CL"
+  },
+  "America/Santo_Domingo": {
+    "city": "Santo Domingo",
+    "country": "DO"
+  },
+  "America/Sao_Paulo": {
+    "city": "Sao Paulo",
+    "country": "BR"
+  },
+  "America/Scoresbysund": {
+    "city": "Scoresbysund",
+    "country": "GL"
+  },
+  "America/Sitka": {
+    "city": "Sitka",
+    "country": "US"
+  },
+  "America/St_Barthelemy": {
+    "city": "Gustavia",
+    "country": "BL"
+  },
+  "America/St_Johns": {
+    "city": "St John's",
+    "country": "CA"
+  },
+  "America/St_Kitts": {
+    "city": "Basseterre",
+    "country": "KN"
+  },
+  "America/St_Lucia": {
+    "city": "Castries",
+    "country": "LC"
+  },
+  "America/St_Thomas": {
+    "city": "St Thomas",
+    "country": "VI"
+  },
+  "America/St_Vincent": {
+    "city": "Kingstown",
+    "country": "VC"
+  },
+  "America/Swift_Current": {
+    "city": "Swift Current",
+    "country": "CA"
+  },
+  "America/Tegucigalpa": {
+    "city": "Tegucigalpa",
+    "country": "HN"
+  },
+  "America/Thule": {
+    "city": "Thule",
+    "country": "GL"
+  },
+  "America/Thunder_Bay": {
+    "city": "Thunder Bay",
+    "country": "CA"
+  },
+  "America/Tijuana": {
+    "city": "Tijuana",
+    "country": "MX"
+  },
+  "America/Toronto": {
+    "city": "Toronto",
+    "country": "CA"
+  },
+  "America/Tortola": {
+    "city": "Tortola",
+    "country": "VG"
+  },
+  "America/Vancouver": {
+    "city": "Vancouver",
+    "country": "CA"
+  },
+  "America/Whitehorse": {
+    "city": "Whitehorse",
+    "country": "CA"
+  },
+  "America/Winnipeg": {
+    "city": "Winnipeg",
+    "country": "CA"
+  },
+  "America/Yakutat": {
+    "city": "Yakutat",
+    "country": "US"
+  },
+  "America/Yellowknife": {
+    "city": "Yellowknife",
+    "country": "CA"
+  },
+  "Antarctica/Casey": {
+    "city": "Casey",
+    "country": "AQ"
+  },
+  "Antarctica/Davis": {
+    "city": "Davis",
+    "country": "AQ"
+  },
+  "Antarctica/DumontDUrville": {
+    "city": "Dumont d'Urville",
+    "country": "AQ"
+  },
+  "Antarctica/Macquarie": {
+    "city": "Macquarie",
+    "country": "AU"
+  },
+  "Antarctica/Mawson": {
+    "city": "Mawson",
+    "country": "AQ"
+  },
+  "Antarctica/McMurdo": {
+    "city": "McMurdo",
+    "country": "AQ"
+  },
+  "Antarctica/Palmer": {
+    "city": "Palmer",
+    "country": "AQ"
+  },
+  "Antarctica/Rothera": {
+    "city": "Rothera",
+    "country": "AQ"
+  },
+  "Antarctica/Syowa": {
+    "city": "Syowa",
+    "country": "AQ"
+  },
+  "Antarctica/Troll": {
+    "city": "Troll",
+    "country": "AQ"
+  },
+  "Antarctica/Vostok": {
+    "city": "Vostok",
+    "country": "AQ"
+  },
+  "Arctic/Longyearbyen": {
+    "city": "Longyearbyen",
+    "country": "SJ"
+  },
+  "Asia/Aden": {
+    "city": "Aden",
+    "country": "YE"
+  },
+  "Asia/Almaty": {
+    "city": "Almaty",
+    "country": "KZ"
+  },
+  "Asia/Amman": {
+    "city": "Amman",
+    "country": "JO"
+  },
+  "Asia/Anadyr": {
+    "city": "Anadyr",
+    "country": "RU"
+  },
+  "Asia/Aqtau": {
+    "city": "Aqtau",
+    "country": "KZ"
+  },
+  "Asia/Aqtobe": {
+    "city": "Aqtobe",
+    "country": "KZ"
+  },
+  "Asia/Ashgabat": {
+    "city": "Ashgabat",
+    "country": "TM"
+  },
+  "Asia/Atyrau": {
+    "city": "Atyrau",
+    "country": "KZ"
+  },
+  "Asia/Baghdad": {
+    "city": "Baghdad",
+    "country": "IQ"
+  },
+  "Asia/Bahrain": {
+    "city": "Manama",
+    "country": "BH"
+  },
+  "Asia/Baku": {
+    "city": "Baku",
+    "country": "AZ"
+  },
+  "Asia/Bangkok": {
+    "city": "Bangkok",
+    "country": "TH"
+  },
+  "Asia/Barnaul": {
+    "city": "Barnaul",
+    "country": "RU"
+  },
+  "Asia/Beirut": {
+    "city": "Beirut",
+    "country": "LB"
+  },
+  "Asia/Bishkek": {
+    "city": "Bishkek",
+    "country": "KG"
+  },
+  "Asia/Brunei": {
+    "city": "Bandar Seri Begawan",
+    "country": "BN"
+  },
+  "Asia/Chita": {
+    "city": "Chita",
+    "country": "RU"
+  },
+  "Asia/Choibalsan": {
+    "city": "Choibalsan",
+    "country": "MN"
+  },
+  "Asia/Colombo": {
+    "city": "Colombo",
+    "country": "LK"
+  },
+  "Asia/Damascus": {
+    "city": "Damascus",
+    "country": "SY"
+  },
+  "Asia/Dhaka": {
+    "city": "Dhaka",
+    "country": "BD"
+  },
+  "Asia/Dili": {
+    "city": "Dili",
+    "country": "TL"
+  },
+  "Asia/Dubai": {
+    "city": "Dubai",
+    "country": "AE"
+  },
+  "Asia/Dushanbe": {
+    "city": "Dushanbe",
+    "country": "TJ"
+  },
+  "Asia/Famagusta": {
+    "city": "Famagusta",
+    "country": "CY"
+  },
+  "Asia/Gaza": {
+    "city": "Gaza",
+    "country": "PS"
+  },
+  "Asia/Hebron": {
+    "city": "Hebron",
+    "country": "PS"
+  },
+  "Asia/Ho_Chi_Minh": {
+    "city": "Ho Chi Minh",
+    "country": "VN"
+  },
+  "Asia/Hong_Kong": {
+    "city": "Hong Kong",
+    "country": "HK"
+  },
+  "Asia/Hovd": {
+    "city": "Hovd",
+    "country": "MN"
+  },
+  "Asia/Irkutsk": {
+    "city": "Irkutsk",
+    "country": "RU"
+  },
+  "Asia/Jakarta": {
+    "city": "Jakarta",
+    "country": "ID"
+  },
+  "Asia/Jayapura": {
+    "city": "Jayapura",
+    "country": "ID"
+  },
+  "Asia/Jerusalem": {
+    "city": "Jerusalem",
+    "country": "IL"
+  },
+  "Asia/Kabul": {
+    "city": "Kabul",
+    "country": "AF"
+  },
+  "Asia/Kamchatka": {
+    "city": "Kamchatka",
+    "country": "RU"
+  },
+  "Asia/Karachi": {
+    "city": "Karachi",
+    "country": "PK"
+  },
+  "Asia/Kathmandu": {
+    "city": "Kathmandu",
+    "country": "NP"
+  },
+  "Asia/Khandyga": {
+    "city": "Khandyga",
+    "country": "RU"
+  },
+  "Asia/Kolkata": {
+    "city": "Kolkata",
+    "country": "IN"
+  },
+  "Asia/Krasnoyarsk": {
+    "city": "Krasnoyarsk",
+    "country": "RU"
+  },
+  "Asia/Kuala_Lumpur": {
+    "city": "Kuala Lumpur",
+    "country": "MY"
+  },
+  "Asia/Kuching": {
+    "city": "Kuching",
+    "country": "MY"
+  },
+  "Asia/Kuwait": {
+    "city": "Kuwait City",
+    "country": "KW"
+  },
+  "Asia/Macau": {
+    "city": "Nossa Senhora de Fátima",
+    "country": "MO"
+  },
+  "Asia/Magadan": {
+    "city": "Magadan",
+    "country": "RU"
+  },
+  "Asia/Makassar": {
+    "city": "Makassar",
+    "country": "ID"
+  },
+  "Asia/Manila": {
+    "city": "Manila",
+    "country": "PH"
+  },
+  "Asia/Muscat": {
+    "city": "Muscat",
+    "country": "OM"
+  },
+  "Asia/Nicosia": {
+    "city": "Nicosia",
+    "country": "CY"
+  },
+  "Asia/Novokuznetsk": {
+    "city": "Novokuznetsk",
+    "country": "RU"
+  },
+  "Asia/Novosibirsk": {
+    "city": "Novosibirsk",
+    "country": "RU"
+  },
+  "Asia/Omsk": {
+    "city": "Omsk",
+    "country": "RU"
+  },
+  "Asia/Oral": {
+    "city": "Oral",
+    "country": "KZ"
+  },
+  "Asia/Phnom_Penh": {
+    "city": "Phnom Penh",
+    "country": "KH"
+  },
+  "Asia/Pontianak": {
+    "city": "Pontianak",
+    "country": "ID"
+  },
+  "Asia/Pyongyang": {
+    "city": "Pyongyang",
+    "country": "KP"
+  },
+  "Asia/Qatar": {
+    "city": "Doha",
+    "country": "QA"
+  },
+  "Asia/Qostanay": {
+    "city": "Qostanay",
+    "country": "KZ"
+  },
+  "Asia/Qyzylorda": {
+    "city": "Qyzylorda",
+    "country": "KZ"
+  },
+  "Asia/Riyadh": {
+    "city": "Riyadh",
+    "country": "SA"
+  },
+  "Asia/Sakhalin": {
+    "city": "Sakhalin",
+    "country": "RU"
+  },
+  "Asia/Samarkand": {
+    "city": "Samarkand",
+    "country": "UZ"
+  },
+  "Asia/Seoul": {
+    "city": "Seoul",
+    "country": "KR"
+  },
+  "Asia/Shanghai": {
+    "city": "Shanghai",
+    "country": "CN"
+  },
+  "Asia/Singapore": {
+    "city": "Singapore",
+    "country": "SG"
+  },
+  "Asia/Srednekolymsk": {
+    "city": "Srednekolymsk",
+    "country": "RU"
+  },
+  "Asia/Taipei": {
+    "city": "Taipei",
+    "country": "TW"
+  },
+  "Asia/Tashkent": {
+    "city": "Tashkent",
+    "country": "UZ"
+  },
+  "Asia/Tbilisi": {
+    "city": "Tbilisi",
+    "country": "GE"
+  },
+  "Asia/Tehran": {
+    "city": "Tehran",
+    "country": "IR"
+  },
+  "Asia/Thimphu": {
+    "city": "Thimphu",
+    "country": "BT"
+  },
+  "Asia/Tokyo": {
+    "city": "Tokyo",
+    "country": "JP"
+  },
+  "Asia/Tomsk": {
+    "city": "Tomsk",
+    "country": "RU"
+  },
+  "Asia/Ulaanbaatar": {
+    "city": "Ulaanbaatar",
+    "country": "MN"
+  },
+  "Asia/Urumqi": {
+    "city": "Urumqi",
+    "country": "CN"
+  },
+  "Asia/Ust-Nera": {
+    "city": "Ust-Nera",
+    "country": "RU"
+  },
+  "Asia/Vientiane": {
+    "city": "Vientiane",
+    "country": "LA"
+  },
+  "Asia/Vladivostok": {
+    "city": "Vladivostok",
+    "country": "RU"
+  },
+  "Asia/Yakutsk": {
+    "city": "Yakutsk",
+    "country": "RU"
+  },
+  "Asia/Yangon": {
+    "city": "Yangon",
+    "country": "MM"
+  },
+  "Asia/Yekaterinburg": {
+    "city": "Yekaterinburg",
+    "country": "RU"
+  },
+  "Asia/Yerevan": {
+    "city": "Yerevan",
+    "country": "AM"
+  },
+  "Atlantic/Azores": {
+    "city": "Azores",
+    "country": "PT"
+  },
+  "Atlantic/Bermuda": {
+    "city": "Hamilton",
+    "country": "BM"
+  },
+  "Atlantic/Canary": {
+    "city": "Canary",
+    "country": "ES"
+  },
+  "Atlantic/Cape_Verde": {
+    "city": "Praia",
+    "country": "CV"
+  },
+  "Atlantic/Faroe": {
+    "city": "Tórshavn",
+    "country": "FO"
+  },
+  "Atlantic/Madeira": {
+    "city": "Madeira",
+    "country": "PT"
+  },
+  "Atlantic/Reykjavik": {
+    "city": "Reykjavik",
+    "country": "IS"
+  },
+  "Atlantic/South_Georgia": {
+    "city": "King Edward Point",
+    "country": "GS"
+  },
+  "Atlantic/St_Helena": {
+    "city": "Half Tree Hollow",
+    "country": "SH"
+  },
+  "Atlantic/Stanley": {
+    "city": "Stanley",
+    "country": "FK"
+  },
+  "Australia/Adelaide": {
+    "city": "Adelaide",
+    "country": "AU"
+  },
+  "Australia/Brisbane": {
+    "city": "Brisbane",
+    "country": "AU"
+  },
+  "Australia/Broken_Hill": {
+    "city": "Broken Hill",
+    "country": "AU"
+  },
+  "Australia/Currie": {
+    "city": "Currie",
+    "country": "AU"
+  },
+  "Australia/Darwin": {
+    "city": "Darwin",
+    "country": "AU"
+  },
+  "Australia/Eucla": {
+    "city": "Eucla",
+    "country": "AU"
+  },
+  "Australia/Hobart": {
+    "city": "Hobart",
+    "country": "AU"
+  },
+  "Australia/Lindeman": {
+    "city": "Lindeman",
+    "country": "AU"
+  },
+  "Australia/Lord_Howe": {
+    "city": "Lord Howe",
+    "country": "AU"
+  },
+  "Australia/Melbourne": {
+    "city": "Melbourne",
+    "country": "AU"
+  },
+  "Australia/Perth": {
+    "city": "Perth",
+    "country": "AU"
+  },
+  "Australia/Sydney": {
+    "city": "Sydney",
+    "country": "AU"
+  },
+  "Europe/Amsterdam": {
+    "city": "Amsterdam",
+    "country": "NL"
+  },
+  "Europe/Andorra": {
+    "city": "Andorra la Vella",
+    "country": "AD"
+  },
+  "Europe/Astrakhan": {
+    "city": "Astrakhan",
+    "country": "RU"
+  },
+  "Europe/Athens": {
+    "city": "Athens",
+    "country": "GR"
+  },
+  "Europe/Belgrade": {
+    "city": "Belgrade",
+    "country": "RS"
+  },
+  "Europe/Berlin": {
+    "city": "Berlin",
+    "country": "DE"
+  },
+  "Europe/Bratislava": {
+    "city": "Bratislava",
+    "country": "SK"
+  },
+  "Europe/Brussels": {
+    "city": "Brussels",
+    "country": "BE"
+  },
+  "Europe/Bucharest": {
+    "city": "Bucharest",
+    "country": "RO"
+  },
+  "Europe/Budapest": {
+    "city": "Budapest",
+    "country": "HU"
+  },
+  "Europe/Busingen": {
+    "city": "Busingen",
+    "country": "DE"
+  },
+  "Europe/Chisinau": {
+    "city": "Chisinau",
+    "country": "MD"
+  },
+  "Europe/Copenhagen": {
+    "city": "Copenhagen",
+    "country": "DK"
+  },
+  "Europe/Dublin": {
+    "city": "Dublin",
+    "country": "IE"
+  },
+  "Europe/Gibraltar": {
+    "city": "Westside",
+    "country": "GI"
+  },
+  "Europe/Guernsey": {
+    "city": "Saint Peter Port",
+    "country": "GG"
+  },
+  "Europe/Helsinki": {
+    "city": "Helsinki",
+    "country": "FI"
+  },
+  "Europe/Isle_of_Man": {
+    "city": "Douglas",
+    "country": "IM"
+  },
+  "Europe/Istanbul": {
+    "city": "Istanbul",
+    "country": "TR"
+  },
+  "Europe/Jersey": {
+    "city": "St Helier",
+    "country": "JE"
+  },
+  "Europe/Kaliningrad": {
+    "city": "Kaliningrad",
+    "country": "RU"
+  },
+  "Europe/Kiev": {
+    "city": "Kiev",
+    "country": "UA"
+  },
+  "Europe/Kirov": {
+    "city": "Kirov",
+    "country": "RU"
+  },
+  "Europe/Lisbon": {
+    "city": "Lisbon",
+    "country": "PT"
+  },
+  "Europe/Ljubljana": {
+    "city": "Ljubljana",
+    "country": "SI"
+  },
+  "Europe/London": {
+    "city": "London",
+    "country": "GB"
+  },
+  "Europe/Luxembourg": {
+    "city": "Luxembourg City",
+    "country": "LU"
+  },
+  "Europe/Madrid": {
+    "city": "Madrid",
+    "country": "ES"
+  },
+  "Europe/Malta": {
+    "city": "St Paul's Bay",
+    "country": "MT"
+  },
+  "Europe/Mariehamn": {
+    "city": "Mariehamn",
+    "country": "AX"
+  },
+  "Europe/Minsk": {
+    "city": "Minsk",
+    "country": "BY"
+  },
+  "Europe/Monaco": {
+    "city": "Monte Carlo",
+    "country": "MC"
+  },
+  "Europe/Moscow": {
+    "city": "Moscow",
+    "country": "RU"
+  },
+  "Europe/Oslo": {
+    "city": "Oslo",
+    "country": "NO"
+  },
+  "Europe/Paris": {
+    "city": "Paris",
+    "country": "FR"
+  },
+  "Europe/Podgorica": {
+    "city": "Podgorica",
+    "country": "ME"
+  },
+  "Europe/Prague": {
+    "city": "Prague",
+    "country": "CZ"
+  },
+  "Europe/Riga": {
+    "city": "Riga",
+    "country": "LV"
+  },
+  "Europe/Rome": {
+    "city": "Rome",
+    "country": "IT"
+  },
+  "Europe/Samara": {
+    "city": "Samara",
+    "country": "RU"
+  },
+  "Europe/San_Marino": {
+    "city": "Dogana",
+    "country": "SM"
+  },
+  "Europe/Sarajevo": {
+    "city": "Sarajevo",
+    "country": "BA"
+  },
+  "Europe/Saratov": {
+    "city": "Saratov",
+    "country": "RU"
+  },
+  "Europe/Simferopol": {
+    "city": "Simferopol",
+    "country": "UA"
+  },
+  "Europe/Skopje": {
+    "city": "Skopje",
+    "country": "MK"
+  },
+  "Europe/Sofia": {
+    "city": "Sofia",
+    "country": "BG"
+  },
+  "Europe/Stockholm": {
+    "city": "Stockholm",
+    "country": "SE"
+  },
+  "Europe/Tallinn": {
+    "city": "Tallinn",
+    "country": "EE"
+  },
+  "Europe/Tirane": {
+    "city": "Tirane",
+    "country": "AL"
+  },
+  "Europe/Ulyanovsk": {
+    "city": "Ulyanovsk",
+    "country": "RU"
+  },
+  "Europe/Uzhgorod": {
+    "city": "Uzhgorod",
+    "country": "UA"
+  },
+  "Europe/Vaduz": {
+    "city": "Vaduz",
+    "country": "LI"
+  },
+  "Europe/Vatican": {
+    "city": "Vatican",
+    "country": "VA"
+  },
+  "Europe/Vienna": {
+    "city": "Vienna",
+    "country": "AT"
+  },
+  "Europe/Vilnius": {
+    "city": "Vilnius",
+    "country": "LT"
+  },
+  "Europe/Volgograd": {
+    "city": "Volgograd",
+    "country": "RU"
+  },
+  "Europe/Warsaw": {
+    "city": "Warsaw",
+    "country": "PL"
+  },
+  "Europe/Zagreb": {
+    "city": "Zagreb",
+    "country": "HR"
+  },
+  "Europe/Zaporozhye": {
+    "city": "Zaporozhye",
+    "country": "UA"
+  },
+  "Europe/Zurich": {
+    "city": "Zurich",
+    "country": "CH"
+  },
+  "Indian/Antananarivo": {
+    "city": "Antananarivo",
+    "country": "MG"
+  },
+  "Indian/Chagos": {
+    "city": "Chagos",
+    "country": "IO"
+  },
+  "Indian/Christmas": {
+    "city": "Flying Fish Cove",
+    "country": "CX"
+  },
+  "Indian/Cocos": {
+    "city": "Bantam",
+    "country": "CC"
+  },
+  "Indian/Comoro": {
+    "city": "Moroni",
+    "country": "KM"
+  },
+  "Indian/Kerguelen": {
+    "city": "Kerguelen",
+    "country": "TF"
+  },
+  "Indian/Mahe": {
+    "city": "Mahe",
+    "country": "SC"
+  },
+  "Indian/Maldives": {
+    "city": "Malé",
+    "country": "MV"
+  },
+  "Indian/Mauritius": {
+    "city": "Mauritius",
+    "country": "MU"
+  },
+  "Indian/Mayotte": {
+    "city": "Port Louis",
+    "country": "YT"
+  },
+  "Indian/Reunion": {
+    "city": "St Denis",
+    "country": "RE"
+  },
+  "Pacific/Apia": {
+    "city": "Apia",
+    "country": "WS"
+  },
+  "Pacific/Auckland": {
+    "city": "Auckland",
+    "country": "NZ"
+  },
+  "Pacific/Bougainville": {
+    "city": "Bougainville",
+    "country": "PG"
+  },
+  "Pacific/Chatham": {
+    "city": "Chatham",
+    "country": "NZ"
+  },
+  "Pacific/Chuuk": {
+    "city": "Chuuk",
+    "country": "FM"
+  },
+  "Pacific/Easter": {
+    "city": "Easter",
+    "country": "CL"
+  },
+  "Pacific/Efate": {
+    "city": "Efate",
+    "country": "VU"
+  },
+  "Pacific/Enderbury": {
+    "city": "Enderbury",
+    "country": "KI"
+  },
+  "Pacific/Fakaofo": {
+    "city": "Fakaofo",
+    "country": "TK"
+  },
+  "Pacific/Fiji": {
+    "city": "Suva",
+    "country": "FJ"
+  },
+  "Pacific/Funafuti": {
+    "city": "Funafuti",
+    "country": "TV"
+  },
+  "Pacific/Galapagos": {
+    "city": "Galapagos",
+    "country": "EC"
+  },
+  "Pacific/Gambier": {
+    "city": "Gambier",
+    "country": "PF"
+  },
+  "Pacific/Guadalcanal": {
+    "city": "Guadalcanal",
+    "country": "SB"
+  },
+  "Pacific/Guam": {
+    "city": "Dededo",
+    "country": "GU"
+  },
+  "Pacific/Honolulu": {
+    "city": "Honolulu",
+    "country": "US"
+  },
+  "Pacific/Kiritimati": {
+    "city": "Kiritimati",
+    "country": "KI"
+  },
+  "Pacific/Kosrae": {
+    "city": "Kosrae",
+    "country": "FM"
+  },
+  "Pacific/Kwajalein": {
+    "city": "Kwajalein",
+    "country": "MH"
+  },
+  "Pacific/Majuro": {
+    "city": "Majuro",
+    "country": "MH"
+  },
+  "Pacific/Marquesas": {
+    "city": "Marquesas",
+    "country": "PF"
+  },
+  "Pacific/Midway": {
+    "city": "Midway",
+    "country": "UM"
+  },
+  "Pacific/Nauru": {
+    "city": "Denigomodu",
+    "country": "NR"
+  },
+  "Pacific/Niue": {
+    "city": "Alofi",
+    "country": "NU"
+  },
+  "Pacific/Norfolk": {
+    "city": "Burnt Pine",
+    "country": "NF"
+  },
+  "Pacific/Noumea": {
+    "city": "Noumea",
+    "country": "NC"
+  },
+  "Pacific/Pago_Pago": {
+    "city": "Pago Pago",
+    "country": "AS"
+  },
+  "Pacific/Palau": {
+    "city": "Koror",
+    "country": "PW"
+  },
+  "Pacific/Pitcairn": {
+    "city": "Adamstown",
+    "country": "PN"
+  },
+  "Pacific/Pohnpei": {
+    "city": "Pohnpei",
+    "country": "FM"
+  },
+  "Pacific/Port_Moresby": {
+    "city": "Port Moresby",
+    "country": "PG"
+  },
+  "Pacific/Rarotonga": {
+    "city": "Rarotonga",
+    "country": "CK"
+  },
+  "Pacific/Saipan": {
+    "city": "Saipan",
+    "country": "MP"
+  },
+  "Pacific/Tahiti": {
+    "city": "Tahiti",
+    "country": "PF"
+  },
+  "Pacific/Tarawa": {
+    "city": "Tarawa",
+    "country": "KI"
+  },
+  "Pacific/Tongatapu": {
+    "city": "Tongatapu",
+    "country": "TO"
+  },
+  "Pacific/Wake": {
+    "city": "Wake",
+    "country": "UM"
+  },
+  "Pacific/Wallis": {
+    "city": "Matā'Utu",
+    "country": "WF"
+  }
+}
