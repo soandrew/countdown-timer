@@ -26,43 +26,62 @@ const ZONES = _.chain(moment.tz.countries())
     };
   })
   .tap(arr => arr.sort((a, b) => {
-    return (a.country.localeCompare(b.country)
-      || a.city.localeCompare(b.city)
-    );
+    return a.country.localeCompare(b.country) || a.city.localeCompare(b.city);
   }))
   .value();
+
+const isListInputValid = (function () {
+  const memo = Object.create(null);
+  return ({ target: { list, value } }) => {
+    if (list !== memo.list) {
+      memo.values = new Set(Array.from(list.options).map(el => el.value));
+      memo.list = list;
+    }
+    return memo.values.has(value);
+  };
+})();
 
 const CreateCountdown = ({ now = moment() }) => {
   const location = useLocation();
   const history = useHistory();
-  const defaultTitle = 'Countdown Timer';
-  const defaultZone = 'UTC';
-  const defaultEnd = moment(now).minutes(roundUpToNearest(5, now.minutes()));
-  const [values, setValues] = useState(Object.assign({
-    endDate: defaultEnd.format(moment.HTML5_FMT.DATE),  // YYYY-MM-DD
-    endTime: defaultEnd.format(moment.HTML5_FMT.TIME),  // HH:mm
-    zone: moment.tz.guess() || defaultZone,
-    title: defaultTitle,
-  }, location.state));  // Restore state from history or use defaults
+  const defaultValues = {
+    zone: 'UTC',
+    title: 'Countdown Timer',
+  };
+  const initialEnd = moment(now).minutes(roundUpToNearest(5, now.minutes() + 1));
+  const initialValues = {
+    endDate: initialEnd.format(moment.HTML5_FMT.DATE),  // YYYY-MM-DD
+    endTime: initialEnd.format(moment.HTML5_FMT.TIME),  // HH:mm
+    zone: moment.tz.guess() || '',
+    title: '',
+  };
+  const [values, setValues] = useState({
+    ...initialValues,
+    ...location.state,
+  });  // Restore state from history or use initial values
   const { endDate, endTime, zone, title } = values;
 
   const handleChange = ({ target: { name, value } }) => {
     setValues({ ...values, [name]: value });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = (event) => {
+    event.preventDefault();
     history.replace(location.pathname, values);  // Save state in history
-    const iso = moment(`${endDate}T${endTime}`).format('YYYYMMDDTHHmm');
-    history.push(`/display?${new URLSearchParams({ iso, zone, title })}`);
+    const query = new URLSearchParams({
+      iso: moment(`${endDate}T${endTime}`).format('YYYYMMDDTHHmm'),
+      zone: zone || defaultValues.zone,
+      title: title || defaultValues.title,
+    });
+    history.push(`/display?${query}`);
   }
 
   return (
     <Container>
       <CountdownTimer
         iso={`${endDate}T${endTime}`}
-        zone={zone || defaultZone}
-        title={title || defaultTitle}
+        zone={zone || defaultValues.zone}
+        title={title || defaultValues.title}
       />
       <Form autoComplete="off" onSubmit={handleSubmit}>
         <Form.Group controlId="title">
@@ -70,8 +89,8 @@ const CreateCountdown = ({ now = moment() }) => {
           <Form.Control
               type="text"
               name="title"
-              value={title !== defaultTitle ? title : ''}
-              placeholder={defaultTitle}
+              value={title}
+              placeholder={defaultValues.title}
               onChange={handleChange}
           />
         </Form.Group>
@@ -103,11 +122,15 @@ const CreateCountdown = ({ now = moment() }) => {
           <Form.Control
             type="text"
             name="zone"
-            value={zone !== defaultZone ? zone : ''}
-            placeholder={defaultZone}
+            defaultValue={zone}
             list="zone-list"
+            placeholder={zone || defaultValues.zone}
             aria-describedby="zone-help"
-            onChange={handleChange}
+            onChange={e => isListInputValid(e) && handleChange(e)}
+            onFocus={({ target }) => {
+              if (target.value) [target.value, target.placeholder] = ['', target.value]}
+            }
+            onBlur={({ target }) => target.value = zone}
           />
           <datalist id="zone-list">
             {ZONES.map(({name, city, country}) => (
