@@ -178,7 +178,7 @@ const CreateCountdown = ({ now = moment() }) => {
         <h1 className={headerTextClass}>Create a custom countdown timer to any date</h1>
       </header>
       <CreateCountdownPreview defaultValues={defaultValues} values={values} />
-      <div className="bg-dark py-5">
+      <div className="bg-dark px-3 py-5">
         <Container className="bg-white pt-2 pb-3 rounded">
           <CreateCountdownForm
             defaultValues={defaultValues}

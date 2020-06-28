@@ -1,5 +1,9 @@
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
+@import '~bootstrap/scss/mixins';
+
 .CountdownFooter {
-  font-size: 1.15rem;
+  text-align: center;
 
   &__time {
     font-weight: 600;
@@ -8,5 +12,10 @@
   &__zone {
     font-weight: 600;
     text-underline-position: under;
+    white-space: nowrap;
+  }
+
+  @include media-breakpoint-up(lg) {
+    font-size: 1.15rem;
   }
 }
