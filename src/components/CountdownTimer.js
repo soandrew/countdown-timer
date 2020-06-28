@@ -15,6 +15,7 @@ const CountdownTimer = ({
   iso = moment.invalid().toISOString(),
   zone = 'UTC',
   title = 'Countdown Timer',
+  titleLevel = 1,
 }) => {
   const end = useMemo(() => moment.tz(iso, zone), [iso, zone]);
   const [durationToEnd, setDurationToEnd] = useState(countdown(null, end.toDate()));
@@ -31,9 +32,11 @@ const CountdownTimer = ({
     ...countdownDisplayProps
   } = durationToEnd;
 
+  const Heading = `h${titleLevel}`;
+
   return (
     <div className={rootClass}>
-      <h1 className={titleClass}>{title}</h1>
+      <Heading className={titleClass}>{title}</Heading>
       {value > 0
         ? <CountdownDisplay {...countdownDisplayProps} />
         : <CountdownDisplay />

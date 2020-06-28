@@ -1,0 +1,42 @@
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
+
+.CreateCountdownHeader {
+  display: flex;
+  padding: map-get($spacers, 2) 15px;
+  justify-content: center;
+  background: gray('900');
+  color: color('white');
+
+  &__text {
+    font-size: 1.5rem;
+  }
+}
+
+.CreateCountdownPreview {
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    box-shadow: inset $box-shadow-lg;
+  }
+
+  &__title {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: .375em .75em;
+    font-size: 1.15rem;
+  }
+}
+
+.CreateCountdownForm {
+  button[type="submit"] {
+    padding: .75em;
+  }
+}

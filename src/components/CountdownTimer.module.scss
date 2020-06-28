@@ -1,5 +1,13 @@
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
+
 .CountdownTimer {
   display: flex;
+  padding: map-get($spacers, 5) 15px;
   flex-direction: column;
   align-items: center;
+
+  &__title {
+    font-size: 2.5rem;
+  }
 }
