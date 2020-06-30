@@ -56,12 +56,12 @@ const CreateCountdownPreview = ({
 }) => {
   return (
     <div className={previewClass}>
-      <div className={previewTitleClass}>Preview</div>
+      <h2 className={previewTitleClass}>Preview</h2>
       <CountdownTimer
         iso={`${endDate}T${endTime}`}
         zone={zone || defaultValues.zone}
         title={title || defaultValues.title}
-        titleLevel={2}
+        titleLevel={3}
       />
     </div>
   );
@@ -179,6 +179,7 @@ const CreateCountdown = ({ now = moment() }) => {
       </header>
       <CreateCountdownPreview defaultValues={defaultValues} values={values} />
       <div className="bg-dark px-3 py-5">
+        <h2 className="sr-only">Editor</h2>
         <Container className="bg-white pt-2 pb-3 rounded">
           <CreateCountdownForm
             defaultValues={defaultValues}

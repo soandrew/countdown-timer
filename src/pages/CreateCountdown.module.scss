@@ -1,5 +1,7 @@
 @import '~bootstrap/scss/functions';
 @import '~bootstrap/scss/variables';
+@import '~bootstrap/scss/mixins';
+@import '~bootstrap/scss/badge';
 
 .CreateCountdownHeader {
   display: flex;
@@ -28,11 +30,18 @@
   }
 
   &__title {
+    @extend .badge, .badge-primary;
+
     position: absolute;
-    top: 0;
-    right: 0;
-    padding: .75em 1.5em;
-    font-size: 1.15rem;
+    top: .5em;
+    left: .5em;
+    border-radius: .25em;
+    font-size: 1rem;
+    font-weight: normal;
+
+    @include media-breakpoint-up(lg) {
+      font-size: 1.15rem;
+    }
   }
 }
 
