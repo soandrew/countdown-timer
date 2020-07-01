@@ -1,1 +1,7 @@
 @import '~bootstrap/scss/bootstrap';
+
+#root {
+  display: flex;
+  min-height: 100vh;
+  flex-flow: column;
+}

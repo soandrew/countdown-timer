@@ -179,9 +179,9 @@ const CreateCountdown = ({ now = moment() }) => {
         <h1 className={headerTextClass}>Create a custom countdown timer to any date</h1>
       </header>
       <CreateCountdownPreview defaultValues={defaultValues} values={values} />
-      <div className="bg-dark px-3 py-5">
+      <Container fluid className="bg-dark text-white py-5 flex-grow-1">
         <h2 className="sr-only">Editor</h2>
-        <Container className="bg-white pt-2 pb-3 rounded">
+        <Container className="bg-white text-dark pt-2 pb-3 rounded">
           <CreateCountdownForm
             defaultValues={defaultValues}
             values={values}
@@ -189,7 +189,7 @@ const CreateCountdown = ({ now = moment() }) => {
             handleChange={handleChange}
           />
         </Container>
-      </div>
+      </Container>
     </>
   );
 };

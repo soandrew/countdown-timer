@@ -2,10 +2,12 @@
 @import '~bootstrap/scss/variables';
 
 .CountdownTimer {
+  flex: 1;
   display: flex;
   padding: map-get($spacers, 5) 15px;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 
   &__title {
     font-size: 2.5rem;

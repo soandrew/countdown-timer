@@ -1,0 +1,19 @@
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
+@import '~bootstrap/scss/mixins';
+
+.SeeMore {
+  text-align: center;
+
+  &__linkGroup {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+  }
+
+  @include media-breakpoint-up(md) {
+    &__linkGroup {
+      flex-direction: row;
+    }
+  }
+}

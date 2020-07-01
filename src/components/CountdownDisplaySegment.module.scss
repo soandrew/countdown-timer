@@ -9,13 +9,13 @@
   font-size: 2rem;
 
   &__amount {
-    flex: 1;
+    flex: 1 45%;
     margin-right: .5em;
     text-align: right;
   }
 
   &__unit {
-    flex: 1;
+    flex: 1 55%;
   }
 
   @include media-breakpoint-up(sm) {
