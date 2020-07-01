@@ -10,6 +10,7 @@ import CountdownTimer from 'components/CountdownTimer';
 import { roundUpToNearest } from 'math';
 import countries from 'static/countries';
 import locationForZone from 'static/locationForZone';
+import routes from 'static/routes';
 import styles from './CreateCountdown.module.scss';
 
 const {
@@ -169,7 +170,7 @@ const CreateCountdown = ({ now = moment() }) => {
       zone: zone || defaultValues.zone,
       title: title || defaultValues.title,
     });
-    history.push(`/display?${query}`);
+    history.push(`${routes.display.path}?${query}`);
   }
 
   return (

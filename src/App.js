@@ -7,18 +7,19 @@ import {
 import CreateCountdown from 'pages/CreateCountdown';
 import DisplayCountdown from 'pages/DisplayCountdown';
 import Home from 'pages/Home';
+import routes from 'static/routes';
 
 function App() {
   return (
     <Router>
       <Switch>
-        <Route exact path="/">
+        <Route exact path={routes.home.path}>
           <Home />
         </Route>
-        <Route path="/create">
+        <Route path={routes.create.path}>
           <CreateCountdown />
         </Route>
-        <Route path="/display">
+        <Route path={routes.display.path}>
           <DisplayCountdown />
         </Route>
       </Switch>
