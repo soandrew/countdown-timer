@@ -133,7 +133,7 @@ const CreateCountdownForm = ({
           Start typing a city or country
         </Form.Text>
       </Form.Group>
-      <Button type="submit" variant="primary" block>Create your countdown</Button>
+      <Button type="submit" variant="dark" block>Create your countdown</Button>
     </Form>
   );
 };

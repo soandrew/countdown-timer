@@ -7,7 +7,7 @@
   display: flex;
   padding: map-get($spacers, 2) 15px;
   justify-content: center;
-  background: gray('900');
+  background: theme-color('dark');
   color: color('white');
 
   &__text {
@@ -30,7 +30,7 @@
   }
 
   &__title {
-    @extend .badge, .badge-primary;
+    @extend .badge, .badge-dark;
 
     position: absolute;
     top: .5em;
