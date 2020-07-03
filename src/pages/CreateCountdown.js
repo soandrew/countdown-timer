@@ -6,6 +6,7 @@ import { useHistory, useLocation } from 'react-router-dom';
 import { roundUpToNearest } from 'utils/math';
 import CreateCountdownForm from 'components/CreateCountdownForm';
 import PreviewCountdown from 'components/PreviewCountdown';
+import SiteHeader from 'components/SiteHeader';
 import routes from 'static/routes';
 
 const CreateCountdown = ({
@@ -48,9 +49,7 @@ const CreateCountdown = ({
 
   return (
     <>
-      <Container fluid as="header" className="bg-dark text-white py-2 text-center">
-        <h1 className="h4">Create a custom countdown timer to any date</h1>
-      </Container>
+      <SiteHeader title="Create a custom countdown timer to any date" />
       <PreviewCountdown
         defaultValues={defaultValues}
         values={values}
