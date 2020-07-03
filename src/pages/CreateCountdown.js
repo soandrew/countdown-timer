@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import Container from 'react-bootstrap/Container';
 import { useHistory, useLocation } from 'react-router-dom';
 
-import { roundUpToNearest } from 'math';
+import { roundUpToNearest } from 'utils/math';
 import CreateCountdownForm from 'components/CreateCountdownForm';
 import PreviewCountdown from 'components/PreviewCountdown';
 import routes from 'static/routes';
