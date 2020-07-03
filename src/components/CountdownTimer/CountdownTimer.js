@@ -1,9 +1,10 @@
-import React, { useEffect, useMemo, useState } from 'react';
 import countdown from 'countdown';
 import moment from 'moment-timezone';
-import CountdownDisplay from 'components/CountdownDisplay';
-import CountdownFooter from 'components/CountdownFooter';
+import React, { useEffect, useMemo, useState } from 'react';
+
 import locationForZone from 'static/locationForZone';
+import CountdownDisplay from './CountdownDisplay';
+import CountdownFooter from './CountdownFooter';
 import styles from './CountdownTimer.module.scss';
 
 const {

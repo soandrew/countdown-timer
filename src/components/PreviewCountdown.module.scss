@@ -3,20 +3,7 @@
 @import '~bootstrap/scss/mixins';
 @import '~bootstrap/scss/badge';
 
-.CreateCountdownHeader {
-  display: flex;
-  padding: map-get($spacers, 2) 15px;
-  justify-content: center;
-  background: theme-color('dark');
-  color: color('white');
-
-  &__text {
-    font-size: 1.5rem;
-    text-align: center;
-  }
-}
-
-.CreateCountdownPreview {
+.PreviewCountdown {
   position: relative;
 
   &::before {
@@ -42,11 +29,5 @@
     @include media-breakpoint-up(lg) {
       font-size: 1.15rem;
     }
-  }
-}
-
-.CreateCountdownForm {
-  button[type="submit"] {
-    padding: .75em;
   }
 }

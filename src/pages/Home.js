@@ -1,5 +1,6 @@
-import React from 'react';
 import moment from 'moment';
+import React from 'react';
+
 import CountdownTimer from 'components/CountdownTimer';
 
 const ONE_MINUTE = moment.duration(1, 'minute');

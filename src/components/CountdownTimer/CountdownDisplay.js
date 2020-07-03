@@ -1,7 +1,8 @@
-import React from 'react';
-import CountdownDisplaySegment from 'components/CountdownDisplaySegment';
 import isEqual from 'lodash/isEqual';
 import moment from 'moment';
+import React from 'react';
+
+import CountdownDisplaySegment from './CountdownDisplaySegment';
 import styles from './CountdownDisplay.module.scss';
 
 const {
