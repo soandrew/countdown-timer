@@ -1,13 +1,13 @@
 import React from 'react';
 import CountdownTimer from 'components/CountdownTimer';
-import styles from './PreviewCountdown.module.scss';
+import styles from './CountdownPreview.module.scss';
 
 const {
-  PreviewCountdown: rootClass,
-  PreviewCountdown__title: titleClass,
+  CountdownPreview: rootClass,
+  CountdownPreview__title: titleClass,
 } = styles;
 
-const PreviewCountdown = ({
+const CountdownPreview = ({
   defaultValues,
   values: { endDate, endTime, zone, title },
   titleLevel,
@@ -26,4 +26,4 @@ const PreviewCountdown = ({
   );
 };
 
-export default PreviewCountdown;
+export default CountdownPreview;
