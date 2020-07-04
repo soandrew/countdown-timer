@@ -1,0 +1,14 @@
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
+@import '~bootstrap/scss/mixins';
+
+.CountdownLink {
+  display: block;
+  color: unset;
+
+  @include hover() {
+    color: unset;
+    background: rgba($black, .03);
+    text-decoration: none;
+  }
+}

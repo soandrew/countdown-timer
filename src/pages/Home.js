@@ -81,8 +81,10 @@ const Home = ({
               className="border-left-0 border-right-0 rounded-0"
             >
             <RecurringEventCountdown
-              now={now}
               {...props}
+              now={now}
+              titleLevel={2}
+              link
             />
           </ListGroup.Item>
         ))}
