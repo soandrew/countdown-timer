@@ -1,11 +1,21 @@
 import _ from 'lodash/core';
 import moment from 'moment-timezone';
 import React from 'react';
+import Button from 'react-bootstrap/Button'
+import Container from 'react-bootstrap/Container'
 import ListGroup from 'react-bootstrap/ListGroup'
+import { Link } from 'react-router-dom';
 
 import RecurringEventCountdown from 'components/RecurringEventCountdown';
 import SiteHeader from 'components/SiteHeader';
 import holidays from 'static/holidays';
+import routes from 'static/routes';
+import styles from './Home.module.scss';
+
+const {
+  Banner: bannerClass,
+  'Banner--sm': bannerSmallModifier,
+} = styles;
 
 const makeRecurringEvents = (now) => _.chain(holidays)
   .map(({ name, date, offset }) => {
@@ -34,15 +44,42 @@ const makeRecurringEvents = (now) => _.chain(holidays)
   .sortBy(({ next }) => next.valueOf())
   .value();
 
+const TopBanner = () => (
+  <Container className="pt-3 pb-1 pb-sm-0">
+    <p className={`${bannerClass} ${bannerSmallModifier}`}>
+      <span className="mb-2 mb-sm-0 mr-sm-2">Select a countdown below or</span>
+      <Button as={Link} to={routes.create.path} variant="outline-dark">
+        Create a custom countdown
+      </Button>
+    </p>
+  </Container>
+);
+
+const BottomBanner = () => (
+  <Container as="nav" className="pt-4 pb-2">
+    <p className={bannerClass}>
+      <span className="mb-2">Can't find the countdown you're looking for?</span>
+      <Button as={Link} to={routes.create.path} variant="dark" className="p-3">
+        Create a custom countdown
+      </Button>
+    </p>
+  </Container>
+);
+
 const Home = ({
   now = moment.tz(moment.tz.guess()),
 }) => {
   return (
     <>
       <SiteHeader title="Live Countdown Timers" />
-      <ListGroup>
+      <TopBanner />
+      <ListGroup as="ul">
         {makeRecurringEvents(now).map(props => (
-          <ListGroup.Item key={props.title} className="border-left-0 border-right-0">
+          <ListGroup.Item
+              as="li"
+              key={props.title}
+              className="border-left-0 border-right-0 rounded-0"
+            >
             <RecurringEventCountdown
               now={now}
               {...props}
@@ -50,6 +87,7 @@ const Home = ({
           </ListGroup.Item>
         ))}
       </ListGroup>
+      <BottomBanner />
     </>
   );
 };

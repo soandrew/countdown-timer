@@ -1,0 +1,17 @@
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
+@import '~bootstrap/scss/mixins';
+
+.Banner {
+  display: flex;
+  flex-flow: column;
+  text-align: center;
+
+  &--sm {
+    @include media-breakpoint-up(sm) {
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}

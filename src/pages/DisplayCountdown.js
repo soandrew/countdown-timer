@@ -26,7 +26,7 @@ const SeeMore = () => {
         >
           Browse common countdowns
         </Button>
-        <span className="mt-1 mb-2 mx-3">or</span>
+        <span className="mt-1 mb-2 mx-3 my-md-0">or</span>
         <Button
           as={Link}
           to={routes.create.path}
@@ -45,7 +45,7 @@ const DisplayCountdown = () => {
   return (
     <>
       <CountdownTimer iso={iso} zone={zone} title={title} />
-      <nav className="bg-dark text-white pt-3 pb-1">
+      <nav className="bg-dark text-white pt-3 pb-1 pb-md-0">
         <SeeMore />
       </nav>
     </>
