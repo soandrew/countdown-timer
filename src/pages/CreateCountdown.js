@@ -10,8 +10,7 @@ import SiteHeader from 'components/SiteHeader';
 import routes from 'static/routes';
 
 const CreateCountdown = ({
-  now = moment(),
-  timeZone = moment.tz.guess(),
+  now = moment.tz(moment.tz.guess()),
 }) => {
   const location = useLocation();
   const history = useHistory();
@@ -23,7 +22,7 @@ const CreateCountdown = ({
   const initialValues = {
     endDate: initialEnd.format(moment.HTML5_FMT.DATE),  // YYYY-MM-DD
     endTime: initialEnd.format(moment.HTML5_FMT.TIME),  // HH:mm
-    zone: timeZone || '',
+    zone: now.tz() || '',
     title: '',
   };
   const [values, setValues] = useState({
@@ -40,7 +39,7 @@ const CreateCountdown = ({
     history.replace(location.pathname, values);  // Save state in history
     const { endDate, endTime, zone, title } = values;
     const query = new URLSearchParams({
-      iso: moment(`${endDate}T${endTime}`).format('YYYYMMDDTHHmm'),
+      iso: `${endDate.replace(/-/g, '')}T${endTime.replace(/:/g, '')}`,
       zone: zone || defaultValues.zone,
       title: title || defaultValues.title,
     });
