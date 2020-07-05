@@ -38,7 +38,7 @@ const isListInputValid = (function () {
   };
 })();
 
-const CreateCountdownForm = ({
+const CountdownForm = ({
   defaultValues,
   values: { endDate, endTime, zone, title },
   handleSubmit,
@@ -110,4 +110,4 @@ const CreateCountdownForm = ({
   );
 };
 
-export default CreateCountdownForm;
+export default CountdownForm;

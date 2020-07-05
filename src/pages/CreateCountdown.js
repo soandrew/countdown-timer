@@ -4,7 +4,7 @@ import Container from 'react-bootstrap/Container';
 import { useHistory, useLocation } from 'react-router-dom';
 
 import { roundUpToNearest } from 'utils/math';
-import CreateCountdownForm from 'components/CreateCountdownForm';
+import CountdownForm from 'components/CountdownForm';
 import CountdownPreview from 'components/CountdownPreview';
 import SiteHeader from 'components/SiteHeader';
 import routes from 'static/routes';
@@ -57,7 +57,7 @@ const CreateCountdown = ({
       <Container fluid className="bg-dark text-white py-5 flex-grow-1">
         <h2 className="sr-only">Editor</h2>
         <Container className="bg-white text-dark pt-2 pb-3 rounded">
-          <CreateCountdownForm
+          <CountdownForm
             defaultValues={defaultValues}
             values={values}
             handleSubmit={handleSubmit}
