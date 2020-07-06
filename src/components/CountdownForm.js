@@ -7,24 +7,28 @@ import Form from 'react-bootstrap/Form';
 
 import countries from 'static/countries';
 import locationForZone from 'static/locationForZone';
+import { toRegionalIndicatorSymbol } from 'utils/string';
 
 const FIVE_MINUTES = moment.duration(5, 'minutes');
+
+const SPACE = '⠀';  // U+2800 BRAILLE PATTERN BLANK
 
 const ZONES = _.chain(moment.tz.countries())
   .map(country => moment.tz.zonesForCountry(country))
   .flatten()
   .thru(arr => [...new Set(arr)])
   .map(zone => {
-    const { city, country } = locationForZone[zone];
+    const { city, country: countryCode } = locationForZone[zone];
     return {
       name: zone,
       city: city,
-      country: countries[country],
+      country: countries[countryCode],
+      flag: toRegionalIndicatorSymbol(countryCode),
     };
   })
-  .tap(arr => arr.sort((a, b) => {
-    return a.country.localeCompare(b.country) || a.city.localeCompare(b.city);
-  }))
+  .tap(arr => arr.sort((a, b) => (
+    a.country.localeCompare(b.country) || a.city.localeCompare(b.city)
+  )))
   .value();
 
 const isListInputValid = (function () {
@@ -95,8 +99,10 @@ const CountdownForm = ({
           onBlur={({ target }) => target.value = zone}
         />
         <datalist id="zone-list">
-          {ZONES.map(({name, city, country}) => (
-            <option key={name} value={name}>{`${city}, ${country}`}</option>
+          {ZONES.map(({ name, city, country, flag }) => (
+            <option key={name} value={name}>
+              {`${flag}${SPACE}${city}, ${country}`}
+            </option>
           ))}
         </datalist>
         <Form.Text id="zone-help" className="text-muted">

@@ -32,7 +32,11 @@ const CountdownFooter = ({
     <>
       {'in '}
       {city
-        ? <abbr title={end.format('[UTC]Z')} className={zoneClass}>{`${city}, ${countries[country]}`}</abbr>
+        ? (
+          <abbr title={end.format('[UTC]Z')} className={zoneClass}>
+            {`${city}, ${countries[country]}`}
+          </abbr>
+        )
         : <abbr title={end.format('zz')} className={zoneClass}>{end.format('z')}</abbr>
       }
       {' time'}
