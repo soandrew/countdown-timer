@@ -5,13 +5,14 @@ import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 
+import { window }  from 'browser-monads';
 import countries from 'static/countries';
 import locationForZone from 'static/locationForZone';
 import { toRegionalIndicatorSymbol } from 'utils/string';
 
 const FIVE_MINUTES = moment.duration(5, 'minutes');
 
-const SPACE = '⠀';  // U+2800 BRAILLE PATTERN BLANK
+const SPACE = '\u2002';  // U+2002 EN SPACE
 
 const ZONES = _.chain(moment.tz.countries())
   .map(country => moment.tz.zonesForCountry(country))
@@ -41,6 +42,8 @@ const isListInputValid = (function () {
     return memo.values.has(value);
   };
 })();
+
+const isWindows = () => (/^win/i).test(window.navigator.platform);
 
 const CountdownForm = ({
   defaultValues,
@@ -101,7 +104,8 @@ const CountdownForm = ({
         <datalist id="zone-list">
           {ZONES.map(({ name, city, country, flag }) => (
             <option key={name} value={name}>
-              {`${flag}${SPACE}${city}, ${country}`}
+              {!isWindows() && `${flag}${SPACE}`}
+              {`${city}, ${country}`}
             </option>
           ))}
         </datalist>
