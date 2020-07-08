@@ -2,7 +2,7 @@ import { useMemo } from 'react';
 import { useLocation } from 'react-router-dom';
 
 const useQueryParams = ({ getAll = false } = {}) => {
-  const queryString = useLocation().search;
+  const { search: queryString } = useLocation();
   return useMemo(() => {
     const result = Object.create(null);
     for (const [key, value] of new URLSearchParams(queryString).entries()) {
