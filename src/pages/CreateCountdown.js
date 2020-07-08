@@ -22,7 +22,7 @@ const CreateCountdown = ({
   const initialValues = {
     endDate: initialEnd.format(moment.HTML5_FMT.DATE),  // YYYY-MM-DD
     endTime: initialEnd.format(moment.HTML5_FMT.TIME),  // HH:mm
-    zone: now.tz() || '',
+    zone: now.tz() ?? '',
     title: '',
   };
   const [values, setValues] = useState({

@@ -7,7 +7,6 @@
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
     "bootstrap": "^4.5.0",
-    "browser-monads": "^1.0.0",
     "countdown": "^2.6.0",
     "lodash": "^4.17.15",
     "moment": "^2.26.0",
