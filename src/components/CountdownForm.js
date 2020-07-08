@@ -5,34 +5,23 @@ import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 
-import { window }  from 'browser-monads';
-import countries from 'static/countries';
 import locationForZone from 'static/locationForZone';
-import { toRegionalIndicatorSymbol } from 'utils/string';
+import { compareLocation, formatLocation } from 'utils/location';
 
 const FIVE_MINUTES = moment.duration(5, 'minutes');
-
-const SPACE = '\u2002';  // U+2002 EN SPACE
 
 const ZONES = _.chain(moment.tz.countries())
   .map(country => moment.tz.zonesForCountry(country))
   .flatten()
-  .thru(arr => [...new Set(arr)])
-  .map(zone => {
-    const { city, country: countryCode } = locationForZone[zone];
-    return {
-      name: zone,
-      city: city,
-      country: countries[countryCode],
-      flag: toRegionalIndicatorSymbol(countryCode),
-    };
-  })
-  .tap(arr => arr.sort((a, b) => (
-    a.country.localeCompare(b.country) || a.city.localeCompare(b.city)
-  )))
+  .thru(arr => [...new Set(arr)])  // Make unique
+  .map(zone => ({
+    name: zone,
+    location: locationForZone[zone],
+  }))
+  .tap(arr => arr.sort((a, b) => compareLocation(a.location, b.location)))
   .value();
 
-const isListInputValid = (function () {
+const isListInputValid = (() => {
   const memo = Object.create(null);
   return ({ target: { list, value } }) => {
     if (list !== memo.list) {
@@ -42,8 +31,6 @@ const isListInputValid = (function () {
     return memo.values.has(value);
   };
 })();
-
-const isWindows = () => (/^win/i).test(window.navigator.platform);
 
 const CountdownForm = ({
   defaultValues,
@@ -102,12 +89,11 @@ const CountdownForm = ({
           onBlur={({ target }) => target.value = zone}
         />
         <datalist id="zone-list">
-          {ZONES.map(({ name, city, country, flag }) => (
-            <option key={name} value={name}>
-              {!isWindows() && `${flag}${SPACE}`}
-              {`${city}, ${country}`}
-            </option>
-          ))}
+          {ZONES.map(({ name, location, offset }) => {
+            return (
+              <option key={name} value={name}>{formatLocation(location)}</option>
+            );
+          })}
         </datalist>
         <Form.Text id="zone-help" className="text-muted">
           Start typing a city or country

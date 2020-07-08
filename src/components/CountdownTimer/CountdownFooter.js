@@ -1,7 +1,7 @@
 import moment from 'moment';
 import React from 'react';
 
-import countries from 'static/countries';
+import { formatLocation } from 'utils/location';
 import styles from './CountdownFooter.module.scss';
 
 const {
@@ -10,10 +10,7 @@ const {
   CountdownFooter__zone: zoneClass,
 } = styles;
 
-const CountdownFooter = ({
-  end,
-  location: { city, country } = {},
-}) => {
+const CountdownFooter = ({ end, location }) => {
   const timeEl = (
     <>
       {'until '}
@@ -31,14 +28,12 @@ const CountdownFooter = ({
   const zoneEl = end.isValid() && (
     <>
       {'in '}
-      {city
-        ? (
-          <abbr title={end.format('[UTC]Z')} className={zoneClass}>
-            {`${city}, ${countries[country]}`}
-          </abbr>
-        )
-        : <abbr title={end.format('zz')} className={zoneClass}>{end.format('z')}</abbr>
-      }
+      <abbr
+        title={location ? end.format('[UTC]Z') : end.format('zz')}
+        className={zoneClass}
+      >
+        {location ? formatLocation(location) : end.format('z')}
+      </abbr>
       {' time'}
     </>
   );
