@@ -14,7 +14,7 @@ const {
 
 const CountdownTimer = ({
   iso = moment.invalid().toISOString(),
-  zone = 'UTC',
+  zone,  // moment.js defaults to 'UTC'
   title = 'Countdown Timer',
   titleLevel = 1,
 }) => {

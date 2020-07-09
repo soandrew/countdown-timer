@@ -1,6 +1,7 @@
 import moment from 'moment';
 import React from 'react';
 
+import AbbrWithTooltip from 'components/AbbrWithTooltip';
 import { formatLocation } from 'utils/location';
 import styles from './CountdownFooter.module.scss';
 
@@ -28,12 +29,13 @@ const CountdownFooter = ({ end, location }) => {
   const zoneEl = end.isValid() && (
     <>
       {'in '}
-      <abbr
+      <AbbrWithTooltip
         title={location ? end.format('[UTC]Z') : end.format('zz')}
         className={zoneClass}
+        onClick={e => e.preventDefault()}
       >
         {location ? formatLocation(location) : end.format('z')}
-      </abbr>
+      </AbbrWithTooltip>
       {' time'}
     </>
   );

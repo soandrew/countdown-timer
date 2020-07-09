@@ -12,8 +12,6 @@
 
   &__zone {
     font-weight: 600;
-    text-underline-position: under;
-    white-space: nowrap;
   }
 
   @include media-breakpoint-up(lg) {
