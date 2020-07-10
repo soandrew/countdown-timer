@@ -47,7 +47,11 @@ const CountdownTimer = ({
         ? <CountdownDisplay {...countdownDisplayProps} />
         : <CountdownDisplay />
       }
-      <CountdownFooter end={end} location={locationForZone[zone]} />
+      <CountdownFooter
+        end={end}
+        location={locationForZone[zone]}
+        tooltipTheme={shouldUseLightText(theme) ? 'light' : 'dark'}
+      />
     </div>
   )
 };

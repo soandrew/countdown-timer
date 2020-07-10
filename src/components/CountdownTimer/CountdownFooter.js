@@ -11,7 +11,7 @@ const {
   CountdownFooter__zone: zoneClass,
 } = styles;
 
-const CountdownFooter = ({ end, location }) => {
+const CountdownFooter = ({ end, location, tooltipTheme }) => {
   const timeEl = (
     <>
       {'until '}
@@ -31,6 +31,7 @@ const CountdownFooter = ({ end, location }) => {
       {'in '}
       <AbbrWithTooltip
         title={location ? end.format('[UTC]Z') : end.format('zz')}
+        theme={tooltipTheme}
         className={zoneClass}
         onClick={e => e.preventDefault()}
       >

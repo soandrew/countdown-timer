@@ -1,7 +1,6 @@
 @import '~bootstrap/scss/functions';
 @import '~bootstrap/scss/variables';
 @import '~bootstrap/scss/mixins';
-@import '~bootstrap/scss/tooltip';
 
 .AbbrWithTooltip {
   position: relative;
@@ -30,18 +29,43 @@
       border-width: 0 ($tooltip-arrow-width / 2) $tooltip-arrow-height;
       border-style: solid;
       border-color: transparent;
-      border-bottom-color: $tooltip-arrow-color;
     }
 
     &::after {
       // Tooltip below
-      @extend .tooltip-inner;
-      max-width: unset;
-
       content: attr(data-original-title);
       margin-top: $tooltip-arrow-height;
+      padding: $tooltip-padding-y $tooltip-padding-x;
+      @include border-radius($tooltip-border-radius);
       @include font-size($tooltip-font-size);
       font-weight: normal;
+      text-align: center;
+    }
+  }
+
+  &--theme-light {
+    @include hover-focus() {
+      &::before {
+        border-bottom-color: $white;
+      }
+
+      &::after {
+        background-color: $white;
+        color: $black;
+      }
+    }
+  }
+
+  &--theme-dark {
+    @include hover-focus() {
+      &::before {
+        border-bottom-color: $black;
+      }
+
+      &::after {
+        background-color: $black;
+        color: $white;
+      }
     }
   }
 }

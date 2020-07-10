@@ -7,15 +7,17 @@ const {
 
 const AbbrWithTooltip = ({
   title,
+  theme,
   children,
   className,
   ...rest
 }, ref) => {
+  const rootClassThemeModifier = styles[`AbbrWithTooltip--theme-${theme}`];
   return (
     <abbr
       data-original-title={title}
       tabIndex={0}
-      className={`${rootClass} ${className}`}
+      className={`${rootClass} ${rootClassThemeModifier} ${className}`}
       ref={ref}
       {...rest}
     >
