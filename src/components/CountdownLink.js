@@ -13,15 +13,14 @@ const CountdownLink = ({
   iso,
   zone,
   title,
+  theme,
   ...rest
 }) => {
-  const query = new URLSearchParams({ iso, zone, title });
+  const query = new URLSearchParams({ iso, zone, title, theme });
   return (
     <Link to={`${routes.display.path}?${query}`} className={rootClass}>
       <CountdownTimer
-        title={title}
-        iso={iso}
-        zone={zone}
+        {...{ iso, zone, title, theme }}
         {...rest}
       />
     </Link>

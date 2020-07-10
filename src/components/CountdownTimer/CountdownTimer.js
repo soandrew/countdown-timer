@@ -12,11 +12,14 @@ const {
   CountdownTimer__title: titleClass,
 } = styles;
 
+const shouldUseLightText = (theme) => ['dark', 'r'].includes(theme) || theme.includes('v');
+
 const CountdownTimer = ({
   iso = moment.invalid().toISOString(),
   zone,  // moment.js defaults to 'UTC'
   title = 'Countdown Timer',
   titleLevel = 1,
+  theme = 'light',
 }) => {
   const end = useMemo(() => moment.tz(iso, zone), [iso, zone]);
   const [durationToEnd, setDurationToEnd] = useState(countdown(null, end.toDate()));
@@ -34,9 +37,11 @@ const CountdownTimer = ({
   } = durationToEnd;
 
   const Heading = `h${titleLevel}`;
+  const rootClassBgModifier = styles[`CountdownTimer--bg-${theme}`] ?? '';
+  const rootClassTextModifier = styles[`CountdownTimer--text-${shouldUseLightText(theme) ? 'light' : 'dark'}`];
 
   return (
-    <div className={rootClass}>
+    <div className={`${rootClass} ${rootClassBgModifier} ${rootClassTextModifier}`}>
       <Heading className={titleClass}>{title}</Heading>
       {value > 0
         ? <CountdownDisplay {...countdownDisplayProps} />

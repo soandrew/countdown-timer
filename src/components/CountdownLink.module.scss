@@ -8,7 +8,16 @@
 
   @include hover() {
     color: unset;
-    background: rgba($black, .03);
     text-decoration: none;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba($black, 0.03);
+    }
   }
 }

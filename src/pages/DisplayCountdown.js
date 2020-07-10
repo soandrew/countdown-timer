@@ -41,10 +41,10 @@ const SeeMore = () => {
 }
 
 const DisplayCountdown = () => {
-  const { iso, zone, title } = useQueryParams();
+  const { iso, zone, title, theme } = useQueryParams();
   return (
     <>
-      <CountdownTimer iso={iso} zone={zone} title={title} />
+      <CountdownTimer {...{iso, zone, title, theme }} />
       <nav className="bg-dark text-white pt-3 pb-1 pb-md-0">
         <SeeMore />
       </nav>

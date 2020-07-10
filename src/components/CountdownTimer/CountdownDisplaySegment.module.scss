@@ -40,7 +40,7 @@
     &__digit {
       display: inline-block;
       padding: .25em;
-      background: gray("200");
+      background: rgba(gray("200"), .75);
       border-radius: .125em;
 
       &:not(:last-child) {

@@ -1,5 +1,27 @@
 @import '~bootstrap/scss/functions';
 @import '~bootstrap/scss/variables';
+@import '~sass-material-colors/sass/sass-material-colors';
+
+@function material-color-apply($colors, $swatch: '500') {
+  $result: ();
+  $separator: list-separator($colors);
+  @each $color in $colors {
+    $result: append($result, material-color($color, $swatch), $separator);
+  }
+  @return $result;
+}
+
+@mixin make-gradient($colors...) {
+  $colors: material-color-apply($colors, '400');
+  @if length($colors) > 1 {
+    background: linear-gradient(
+      120deg,  // to right bottomish
+      $colors
+    );
+  } @else {
+    background: nth($colors, 1);
+  }
+}
 
 .CountdownTimer {
   flex: 1;
@@ -12,5 +34,53 @@
   &__title {
     font-size: 2.5rem;
     text-align: center;
+  }
+
+  &--text-light {
+    color: color('white');
+  }
+
+  &--text-dark {
+    color: gray('900');
+  }
+
+  &--bg-light {
+    background: color('white');
+  }
+
+  &--bg-dark {
+    background: theme-color('dark');
+  }
+
+  &--bg-r {
+    @include make-gradient('red');
+  }
+
+  &--bg-roy {
+    @include make-gradient('red', 'orange', 'yellow');
+  }
+
+  &--bg-y {
+    @include make-gradient('amber');
+  }
+
+  &--bg-g {
+    @include make-gradient('light-green');
+  }
+
+  &--bg-b {
+    @include make-gradient('light-blue');
+  }
+
+  &--bg-biv {
+    @include make-gradient('blue', 'indigo', 'purple');
+  }
+
+  &--bg-v {
+    @include make-gradient('purple');
+  }
+
+  &--bg-vmr {
+    @include make-gradient('purple', 'pink', 'deep-orange');
   }
 }

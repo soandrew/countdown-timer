@@ -18,7 +18,7 @@ const {
 } = styles;
 
 const makeRecurringEvents = (now) => _.chain(holidays)
-  .map(({ name, date, offset }) => {
+  .map(({ name, date, offset, ...rest }) => {
     const occurrence = moment.tz(date, now.tz());
     const [prev, next] = now.isSameOrAfter(occurrence)
       ? [occurrence, moment(occurrence).add(1, offset)]
@@ -27,6 +27,7 @@ const makeRecurringEvents = (now) => _.chain(holidays)
       title: `${name} Countdown`,
       prev,
       next,
+      ...rest
     };
   })
   .tap(arr => arr.push(
@@ -34,11 +35,13 @@ const makeRecurringEvents = (now) => _.chain(holidays)
       title: 'Countdown to Midnight',
       prev: moment(now).startOf('day'),
       next: moment(now).startOf('day').add(1, 'day'),
+      theme: 'v',
     },
     {
       title: 'Countdown to the Weekend',
       prev: moment(now).day(-1).startOf('day'),  // Previous Saturday
       next: moment(now).day(6).startOf('day'),  // This Saturday
+      theme: 'y',
     },
   ))
   .sortBy(({ next }) => next.valueOf())
@@ -78,7 +81,7 @@ const Home = ({
           <ListGroup.Item
               as="li"
               key={props.title}
-              className="border-left-0 border-right-0 rounded-0"
+              className="border-left-0 border-right-0 rounded-0 p-2"
             >
             <RecurringEventCountdown
               {...props}
