@@ -1,0 +1,42 @@
+@function material-color-apply($colors, $swatch: '500') {
+  $result: ();
+  $separator: list-separator($colors);
+  @each $color in $colors {
+    $result: append($result, material-color($color, $swatch), $separator);
+  }
+  @return $result;
+}
+
+@mixin make-theme-gradient-bgs(
+  $prefix: '.',
+  $postfix: '',
+  $swatch: '400',
+  $angle: 120deg,  // to right bottomish
+  $themes: (
+    'r': 'red',
+    'roy': ('red', 'orange', 'yellow'),
+    'y': 'amber',
+    'g': 'light-green',
+    'b': 'light-blue',
+    'biv': ('blue', 'indigo', 'purple'),
+    'v': 'purple',
+    'vmr': ('purple', 'pink', 'deep-orange'),
+  ),
+) {
+  #{$prefix}#{light}#{$postfix} {
+    background: color('white');
+  }
+  #{$prefix}#{dark}#{$postfix} {
+    background: theme-color('dark');
+  }
+  @each $name, $colors in $themes {
+    $colors: material-color-apply($colors, $swatch);
+    #{$prefix}#{$name}#{$postfix} {
+      @if length($colors) > 1 {
+        background: linear-gradient($angle, $colors);
+      } @else {
+        background: nth($colors, 1);
+      }
+    }
+  }
+}
