@@ -16,12 +16,12 @@ const shouldUseLightText = (theme) => ['dark', 'r'].includes(theme) || theme.inc
 
 const CountdownTimer = ({
   iso = moment.invalid().toISOString(),
-  zone,  // moment.js defaults to 'UTC'
+  zone = 'UTC',
   title = 'Countdown Timer',
   titleLevel = 1,
   theme = 'light',
 }) => {
-  const end = useMemo(() => moment.tz(iso, zone), [iso, zone]);
+  const end = useMemo(() => moment.tz(iso, moment.tz(zone).zoneName() !== 'UTC' ? zone : null), [iso, zone]);
   const [durationToEnd, setDurationToEnd] = useState(countdown(null, end.toDate()));
   useEffect(() => {
     const intervalId = countdown(timespan => setDurationToEnd(timespan), end.toDate());

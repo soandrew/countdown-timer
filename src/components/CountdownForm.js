@@ -7,8 +7,26 @@ import Form from 'react-bootstrap/Form';
 
 import locationForZone from 'static/locationForZone';
 import { compareLocation, formatLocation } from 'utils/location';
+import styles from './CountdownForm.module.scss';
+
+const {
+  CountdownForm: rootClass,
+} = styles;
 
 const FIVE_MINUTES = moment.duration(5, 'minutes');
+
+const THEMES = {
+  light: 'Light',
+  dark: 'Dark',
+  r: 'Red',
+  roy: 'Red-Orange-Yellow',
+  y: 'Yellow',
+  g: 'Green',
+  b: 'Blue',
+  biv: 'Blue-Indigo-Purple',
+  v: 'Purple',
+  vmr: 'Purple-Pink-Red'
+};
 
 const ZONES = _.chain(moment.tz.countries())
   .map(country => moment.tz.zonesForCountry(country))
@@ -34,12 +52,12 @@ const isListInputValid = (() => {
 
 const CountdownForm = ({
   defaultValues,
-  values: { endDate, endTime, zone, title },
+  values: { endDate, endTime, zone, title, theme },
   handleSubmit,
   handleChange,
 }) => {
   return (
-    <Form autoComplete="off" onSubmit={handleSubmit}>
+    <Form autoComplete="off" onSubmit={handleSubmit} className={rootClass}>
       <Form.Group controlId="title">
         <Form.Label>Title</Form.Label>
         <Form.Control
@@ -98,6 +116,21 @@ const CountdownForm = ({
         <Form.Text id="zone-help" className="text-muted">
           Start typing a city or country
         </Form.Text>
+      </Form.Group>
+      <Form.Group as="fieldset">
+        <Form.Label as="legend">Background colour</Form.Label>
+        {Object.entries(THEMES).map(([value, label]) => (
+          <Form.Check key={value} id={value} inline>
+            <Form.Check.Input
+              type="radio"
+              name="theme"
+              value={value}
+              checked={theme === value}
+              onChange={handleChange}
+            />
+            <Form.Check.Label className="sr-only">{label}</Form.Check.Label>
+          </Form.Check>
+        ))}
       </Form.Group>
       <Button type="submit" variant="dark" block className="p-3">
         Create your countdown

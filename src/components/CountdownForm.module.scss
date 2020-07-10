@@ -1,0 +1,42 @@
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
+@import '~bootstrap/scss/mixins';
+@import '~bootstrap/scss/forms';
+@import '~sass-material-colors/sass/sass-material-colors';
+@import 'src/mixins/gradients';
+
+.CountdownForm {
+  legend:global(.form-label) {
+    font-size: unset;
+  }
+
+  :global(.form-check-inline) {
+    margin-bottom: $form-check-inline-margin-x;
+  }
+
+  input[name="theme"] {
+    @extend .form-control;
+    appearance: none;
+    width: $input-height;
+
+    &:focus:not(:checked) {
+      // Undo .form-control:focus styles
+      border-color: $input-border-color;
+      box-shadow: unset;
+    }
+
+    &:checked {
+      @extend .form-control:focus;
+    }
+
+    &:global(.focus-visible) {
+      outline: auto;
+    }
+
+    @include make-theme-gradient-bgs('&[value="', '"]');
+  }
+
+  fieldset {
+    margin-bottom: map-get($spacers, 2);
+  }
+}

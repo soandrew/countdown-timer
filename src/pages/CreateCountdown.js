@@ -9,6 +9,13 @@ import CountdownPreview from 'components/CountdownPreview';
 import SiteHeader from 'components/SiteHeader';
 import routes from 'static/routes';
 
+const parseFormValues = ({ endDate, endTime, zone, title, theme }, defaultValues) => ({
+  iso: `${endDate.replace(/-/g, '')}T${endTime.replace(/:/g, '')}`,
+  zone: zone || defaultValues.zone,
+  title: title || defaultValues.title,
+  theme: theme,
+});
+
 const CreateCountdown = ({
   now = moment.tz(moment.tz.guess()),
 }) => {
@@ -24,6 +31,7 @@ const CreateCountdown = ({
     endTime: initialEnd.format(moment.HTML5_FMT.TIME),  // HH:mm
     zone: now.tz() ?? '',
     title: '',
+    theme: 'light',
   };
   const [values, setValues] = useState({
     ...initialValues,
@@ -37,12 +45,7 @@ const CreateCountdown = ({
   const handleSubmit = (event) => {
     event.preventDefault();
     history.replace(location.pathname, values);  // Save state in history
-    const { endDate, endTime, zone, title } = values;
-    const query = new URLSearchParams({
-      iso: `${endDate.replace(/-/g, '')}T${endTime.replace(/:/g, '')}`,
-      zone: zone || defaultValues.zone,
-      title: title || defaultValues.title,
-    });
+    const query = new URLSearchParams(parseFormValues(values, defaultValues));
     history.push(`${routes.display.path}?${query}`);
   }
 
@@ -50,8 +53,7 @@ const CreateCountdown = ({
     <>
       <SiteHeader title="Create a custom countdown timer to any date" />
       <CountdownPreview
-        defaultValues={defaultValues}
-        values={values}
+        {...parseFormValues(values, defaultValues)}
         titleLevel={2}
       />
       <Container fluid className="bg-dark text-white py-5 flex-grow-1">
