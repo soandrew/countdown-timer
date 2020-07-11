@@ -3,11 +3,12 @@ import React, { useState } from 'react';
 import Container from 'react-bootstrap/Container';
 import { useHistory, useLocation } from 'react-router-dom';
 
-import { roundUpToNearest } from 'utils/math';
 import CountdownForm from 'components/CountdownForm';
 import CountdownPreview from 'components/CountdownPreview';
 import SiteHeader from 'components/SiteHeader';
 import routes from 'static/routes';
+
+const roundUpToNearest = (multiple, x) => Math.ceil(x / multiple) * multiple;
 
 const parseFormValues = ({ endDate, endTime, zone, title, theme }, defaultValues) => ({
   iso: `${endDate.replace(/-/g, '')}T${endTime.replace(/:/g, '')}`,

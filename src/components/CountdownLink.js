@@ -1,3 +1,4 @@
+import pick from 'lodash/pick';
 import React from 'react';
 import { Link } from 'react-router-dom';
 
@@ -9,20 +10,11 @@ const {
   CountdownLink: rootClass,
 } = styles;
 
-const CountdownLink = ({
-  iso,
-  zone,
-  title,
-  theme,
-  ...rest
-}) => {
-  const query = new URLSearchParams({ iso, zone, title, theme });
+const CountdownLink = (props) => {
+  const query = new URLSearchParams(pick(props, ['iso', 'zone', 'title', 'theme']));
   return (
     <Link to={`${routes.display.path}?${query}`} className={rootClass}>
-      <CountdownTimer
-        {...{ iso, zone, title, theme }}
-        {...rest}
-      />
+      <CountdownTimer {...props} />
     </Link>
   );
 };
