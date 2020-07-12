@@ -604,7 +604,7 @@
     "country": "BS"
   },
   "America/New_York": {
-    "city": "New York",
+    "city": "New York City",
     "country": "US"
   },
   "America/Nipigon": {
@@ -712,7 +712,7 @@
     "country": "DO"
   },
   "America/Sao_Paulo": {
-    "city": "Sao Paulo",
+    "city": "São Paulo",
     "country": "BR"
   },
   "America/Scoresbysund": {
