@@ -1,6 +1,6 @@
 import _ from 'lodash/core';
 import moment from 'moment-timezone';
-import React from 'react';
+import React, { useCallback } from 'react';
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
@@ -100,11 +100,11 @@ const CountdownForm = ({
           list="zone-list"
           placeholder={zone || defaultValues.zone}
           aria-describedby="zone-help"
-          onChange={e => isListInputValid(e) && handleChange(e)}
-          onFocus={({ target }) => {
-            if (target.value) [target.value, target.placeholder] = ['', target.value]}
-          }
-          onBlur={({ target }) => target.value = zone}
+          onChange={useCallback(e => isListInputValid(e) && handleChange(e), [handleChange])}
+          onFocus={useCallback(({ target }) => {
+            if (target.value) [target.value, target.placeholder] = ['', target.value]
+          }, [])}
+          onBlur={useCallback(({ target }) => target.value = zone, [zone])}
         />
         <datalist id="zone-list">
           {ZONES.map(({ name, location, offset }) => {

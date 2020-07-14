@@ -1,5 +1,5 @@
 import moment from 'moment-timezone';
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import Container from 'react-bootstrap/Container';
 import { useHistory, useLocation } from 'react-router-dom';
 
@@ -39,16 +39,16 @@ const CreateCountdown = ({
     ...location.state,
   });  // Restore state from history or use initial values
 
-  const handleChange = ({ target: { name, value } }) => {
-    setValues({ ...values, [name]: value });
-  };
+  const handleChange = useCallback(({ target: { name, value } }) => {
+    setValues(prevValues => ({ ...prevValues, [name]: value }));
+  }, []);
 
   const handleSubmit = (event) => {
     event.preventDefault();
     history.replace(location.pathname, values);  // Save state in history
     const query = new URLSearchParams(parseFormValues(values, defaultValues));
     history.push(`${routes.display.path}?${query}`);
-  }
+  };
 
   return (
     <>

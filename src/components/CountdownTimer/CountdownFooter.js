@@ -15,25 +15,29 @@ const CountdownFooter = ({ end, location, tooltipTheme }) => {
   const timeEl = (
     <>
       {'until '}
-      <time dateTime={end.toISOString(true)}>
-        <span className={timeClass}>{end.format('dddd, MMMM D, YYYY')}</span>
-        {end.isValid() && !end.isSame(moment(end).startOf('day')) && (
-          <>
-            {' at '}
-            <span className={timeClass}>{end.format('h:mm A')}</span>
-          </>
-        )}
-      </time>
+      {end.isValid()
+        ? (
+          <time dateTime={end.toISOString(true)}>
+            <span className={timeClass}>{end.format('dddd, MMMM D, YYYY')}</span>
+            {!end.isSame(moment(end).startOf('day')) && (
+              <>
+                {' at '}
+                <span className={timeClass}>{end.format('h:mm A')}</span>
+              </>
+            )}
+          </time>
+        )
+        : <span className={timeClass}>{end.format()}</span>
+      }
     </>
   );
   const zoneEl = end.isValid() && (
     <>
-      {'in '}
+      {' in '}
       <AbbrWithTooltip
         title={location ? end.format('[UTC]Z') : end.format('zz')}
         theme={tooltipTheme}
         className={zoneClass}
-        onClick={e => e.preventDefault()}
       >
         {location ? formatLocation(location) : end.format('z')}
       </AbbrWithTooltip>
@@ -42,7 +46,7 @@ const CountdownFooter = ({ end, location, tooltipTheme }) => {
   );
 
   return (
-    <span className={rootClass}>{timeEl} {zoneEl}</span>
+    <span className={rootClass}>{timeEl}{zoneEl}</span>
   );
 };
 

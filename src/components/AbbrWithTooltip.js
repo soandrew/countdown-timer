@@ -1,4 +1,4 @@
-import React, { forwardRef } from 'react';
+import React, { forwardRef, useCallback } from 'react';
 import styles from './AbbrWithTooltip.module.scss';
 
 const {
@@ -15,8 +15,12 @@ const AbbrWithTooltip = ({
   const rootClassThemeModifier = styles[`AbbrWithTooltip--theme-${theme}`];
   return (
     <abbr
+      title={title}
       data-original-title={title}
       tabIndex={0}
+      onMouseEnter={useCallback(({ target }) => target.removeAttribute('title') ,[])}
+      onMouseLeave={useCallback(({ target }) => target.title = target.dataset.originalTitle, [])}
+      onClick={useCallback(e => e.preventDefault(), [])}
       className={`${rootClass} ${rootClassThemeModifier} ${className}`}
       ref={ref}
       {...rest}
