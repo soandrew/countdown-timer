@@ -18,6 +18,7 @@ const CountdownDisplaySegment = ({ amount, unit, numDigits = 2 }) => {
       <span className={amountClass}>
         {digits.map((ele, idx) => <span className={digitClass} key={idx}>{ele}</span>)}
       </span>
+      {' '}
       <span className={unitClass}>{amount === 1 ? unitSingular : `${unitSingular}s`}</span>
     </span>
   );
