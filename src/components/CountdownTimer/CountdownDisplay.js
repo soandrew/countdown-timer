@@ -30,7 +30,7 @@ const getSignificantSegments = ({
   // Determine first significant segment
   let start = allSegments.findIndex(([amount]) => amount > 0);
   if (start === -1 || start + minNumSegments > allSegments.length) {
-    start = allSegments.length - minNumSegments;
+    start = Math.max(allSegments.length - minNumSegments, 0);
   }
   return allSegments.slice(start);
 };
@@ -42,7 +42,12 @@ const CountdownDisplay = (props) => {
   // Split into date and time segments
   if (children.length > 4) children.splice(-3, 0, <hr key="break" className={breakClass}/>);
   return (
-    <time dateTime={moment.duration(props).toISOString()} className={rootClass}>
+    <time
+      dateTime={moment.duration(props).toISOString()}
+      role="timer"
+      aria-atomic
+      className={rootClass}
+    >
       {children}
     </time>
   )
