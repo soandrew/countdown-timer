@@ -1,0 +1,82 @@
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
+@import '~bootstrap/scss/mixins';
+
+.Tooltip {
+  display: inline-block;
+  position: relative;
+
+  > [tabindex="0"] {
+    display: inline-block;
+    text-decoration: underline dotted;
+    text-decoration-skip-ink: none;
+    text-underline-position: under;
+    white-space: nowrap;
+    cursor: help;
+
+    // Hide focus indicator for pointer focus but not for keyboard focus
+    &:focus:not(:global(.focus-visible)) {
+      outline: none;
+    }
+  }
+
+  > [role="tooltip"] {
+    display: none;
+
+    // Tooltip below
+    position: absolute;
+    top: add(100%, 1px);
+    left: 50%;
+    transform: translate3d(-50%, 0, 0);
+    z-index: $zindex-tooltip;
+    margin-top: $tooltip-arrow-height;
+    width: fit-content;
+    max-width: $tooltip-max-width;
+    padding: $tooltip-padding-y $tooltip-padding-x;
+    @include border-radius($tooltip-border-radius);
+    @include font-size($tooltip-font-size);
+    word-wrap: break-word;
+
+    &::before {
+      // Caret up
+      content: '';
+      position: absolute;
+      bottom: 100%;
+      left: 50%;
+      transform: translate3d(-50%, 0, 0);
+      border-width: 0 ($tooltip-arrow-width / 2) $tooltip-arrow-height;
+      border-style: solid;
+      border-color: transparent;
+    }
+  }
+
+  > [tabindex="0"] {
+    @include hover-focus() {
+      + [role="tooltip"] {
+        display: block;
+      }
+    }
+  }
+
+  &--theme-light {
+    > [role="tooltip"] {
+      background-color: $white;
+      color: $black;
+
+      &::before {
+        border-bottom-color: $white;
+      }
+    }
+  }
+  
+  &--theme-dark {
+    > [role="tooltip"] {
+      background-color: $black;
+      color: $white;
+
+      &::before {
+        border-bottom-color: $black;
+      }
+    }
+  }
+}
