@@ -39,18 +39,20 @@ const CountdownTimer = ({
   const Heading = `h${titleLevel}`;
   const rootClassBgModifier = styles[`CountdownTimer--bg-${theme}`] ?? '';
   const rootClassTextModifier = styles[`CountdownTimer--text-${shouldUseLightText(theme) ? 'light' : 'dark'}`];
+  const displayTheme = shouldUseLightText(theme) ? 'dark' : 'light';
+  const tooltipTheme = shouldUseLightText(theme) ? 'light' : 'dark';
 
   return (
     <div className={`${rootClass} ${rootClassBgModifier} ${rootClassTextModifier}`}>
       <Heading className={titleClass}>{title}</Heading>
-      {value > 0
-        ? <CountdownDisplay {...countdownDisplayProps} />
-        : <CountdownDisplay />
-      }
+      <CountdownDisplay
+        {...(value > 0 ? countdownDisplayProps : {})}
+        theme={displayTheme}
+      />
       <CountdownFooter
         end={end}
         location={locationForZone[zone]}
-        tooltipTheme={shouldUseLightText(theme) ? 'light' : 'dark'}
+        tooltipTheme={tooltipTheme}
       />
     </div>
   )

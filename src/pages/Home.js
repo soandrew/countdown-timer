@@ -14,7 +14,7 @@ import styles from './Home.module.scss';
 
 const {
   Banner: bannerClass,
-  'Banner--sm': bannerSmallModifier,
+  'Banner--sm': bannerClassSmallModifier,
 } = styles;
 
 const makeRecurringEvents = (now) => _.chain(holidays)
@@ -49,7 +49,7 @@ const makeRecurringEvents = (now) => _.chain(holidays)
 
 const TopBanner = () => (
   <Container className="pt-3 pb-1 pb-sm-0">
-    <p className={`${bannerClass} ${bannerSmallModifier}`}>
+    <p className={`${bannerClass} ${bannerClassSmallModifier}`}>
       <span className="mb-2 mb-sm-0 mr-sm-2">Select a countdown below or</span>
       <Button as={Link} to={routes.create.path} variant="outline-dark">
         Create a custom countdown

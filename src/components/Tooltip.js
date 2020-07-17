@@ -13,7 +13,7 @@ const Tooltip = ({
   className,
   ...rest
 }, ref) => {
-  const rootClassThemeModifier = styles[`Tooltip--theme-${theme}`];
+  const rootClassThemeModifier = styles[`Tooltip--${theme}`];
   return (
     <div className={`${rootClass} ${rootClassThemeModifier}`}>
       <span

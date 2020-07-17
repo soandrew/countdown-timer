@@ -10,13 +10,16 @@ const {
   CountdownDisplaySegment__unit: unitClass,
 } = styles;
 
-const CountdownDisplaySegment = ({ amount, unit, numDigits = 2 }) => {
+const CountdownDisplaySegment = ({ amount, unit, numDigits = 2, theme = 'light' }) => {
   const digits = String(amount).padStart(numDigits, '0').split('');
   const unitSingular = moment.normalizeUnits(unit);
+  const digitClassBgModifier = styles[`CountdownDisplaySegment__digit--bg-${theme}`];
   return (
     <span className={rootClass}>
       <span className={amountClass}>
-        {digits.map((ele, idx) => <span className={digitClass} key={idx}>{ele}</span>)}
+        {digits.map((ele, idx) => (
+          <span className={`${digitClass} ${digitClassBgModifier}`} key={idx}>{ele}</span>)
+        )}
       </span>
       {' '}
       <span className={unitClass}>{amount === 1 ? unitSingular : `${unitSingular}s`}</span>
