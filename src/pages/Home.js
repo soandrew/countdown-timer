@@ -39,8 +39,8 @@ const makeRecurringEvents = (now) => _.chain(holidays)
     },
     {
       title: 'Countdown to the Weekend',
-      prev: moment(now).day(-1).startOf('day'),  // Previous Saturday
-      next: moment(now).day(6).startOf('day'),  // This Saturday
+      prev: moment(now).isoWeekday(-1).startOf('day'),  // Previous Saturday
+      next: moment(now).isoWeekday(6).startOf('day'),  // This Saturday
       theme: 'y',
     },
   ))

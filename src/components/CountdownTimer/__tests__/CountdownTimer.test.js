@@ -65,6 +65,7 @@ describe('<CountdownTimer />', () => {
         days: 5,
         minutes: 3,
       }).toISOString(),
+      zone: 'America/Vancouver',
     };
 
     it('should render a live display with the correct duration', async () => {
@@ -92,7 +93,7 @@ describe('<CountdownTimer />', () => {
 
     it('should render a footer with the correct date', () => {
       const footer = shallow(<CountdownTimer {...props} />).find(CountdownFooter);
-      expect(footer.prop('end').isSame(moment.utc(props.iso))).toEqual(true);
+      expect(footer.prop('end').isSame(moment.tz(props.iso, props.zone))).toEqual(true);
     });
   });
 

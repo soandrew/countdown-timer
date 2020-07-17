@@ -45,22 +45,18 @@ describe('<CountdownDisplay />', () => {
       seconds: 13,
     };
 
-    it('should trim leading 0-valued segments while respecting minNumSegments', () => {
-      const wrapper = shallow(<CountdownDisplay {...props} minNumSegments={3} />)
-      let segments = wrapper.find(CountdownDisplaySegment);
-      expect(segments).toHaveLength(4);
-      segments.forEach((segment, i) => expect(segment).toHaveProp({
-        unit: UNITS[i+2],
-        amount: props[UNITS[i+2]],
-      }));
-
-      wrapper.setProps({ minNumSegments: 5 });
-      segments = wrapper.find(CountdownDisplaySegment);
-      expect(segments).toHaveLength(5);
-      segments.forEach((segment, i) => expect(segment).toHaveProp({
-        unit: UNITS[i+1],
-        amount: props[UNITS[i+1]],
-      }));
+    describe('should trim leading 0-valued segments while respecting minNumSegments', () => {
+      test.each(
+        [3, 4, 5]
+      )('[%#] minNumSegments=%s', (minNumSegments) => {
+        const wrapper = shallow(<CountdownDisplay {...props} minNumSegments={minNumSegments} />)
+        let segments = wrapper.find(CountdownDisplaySegment);
+        expect(segments).toHaveLength(Math.max(minNumSegments, 4));
+        segments.forEach((segment, i) => expect(segment).toHaveProp({
+          unit: UNITS[UNITS.length - segments.length + i],
+          amount: props[UNITS[UNITS.length - segments.length + i]],
+        }));
+      });
     });
 
     it('should render a time element with the correct role and datetime', () => {
