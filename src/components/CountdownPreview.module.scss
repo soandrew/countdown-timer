@@ -24,6 +24,7 @@
     left: .5em;
     font-size: 1rem;
     font-weight: normal;
+    text-transform: capitalize;
 
     @include media-breakpoint-up(lg) {
       font-size: 1.15rem;

@@ -55,9 +55,12 @@ const CountdownForm = ({
   values: { endDate, endTime, zone, title, theme },
   handleSubmit,
   handleChange,
+  titleLevel,
 }) => {
+  const Heading = `h${titleLevel}`;
   return (
     <Form autoComplete="off" onSubmit={handleSubmit} className={rootClass}>
+      <Heading className="sr-only">Countdown editor</Heading>
       <Form.Group controlId="title">
         <Form.Label>Title</Form.Label>
         <Form.Control

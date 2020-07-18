@@ -13,13 +13,15 @@ const CountdownPreview = ({
 }) => {
   const Heading = `h${titleLevel}`;
   return (
-    <div className={rootClass}>
-      <Heading className={titleClass}>Preview</Heading>
+    <section className={rootClass}>
+      <Heading className={titleClass}>
+        <span className="sr-only">Countdown </span>preview
+      </Heading>
       <CountdownTimer
         titleLevel={titleLevel + 1}
         {...rest}
       />
-    </div>
+    </section>
   );
 };
 

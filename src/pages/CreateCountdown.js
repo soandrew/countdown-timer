@@ -57,14 +57,14 @@ const CreateCountdown = ({
         {...parseFormValues(values, defaultValues)}
         titleLevel={2}
       />
-      <Container fluid className="bg-dark text-white py-5 flex-grow-1">
-        <h2 className="sr-only">Editor</h2>
+      <Container as="section" fluid className="bg-dark text-white py-5 flex-grow-1">
         <Container className="bg-white text-dark pt-2 pb-3 rounded">
           <CountdownForm
             defaultValues={defaultValues}
             values={values}
             handleSubmit={handleSubmit}
             handleChange={handleChange}
+            titleLevel={2}
           />
         </Container>
       </Container>
