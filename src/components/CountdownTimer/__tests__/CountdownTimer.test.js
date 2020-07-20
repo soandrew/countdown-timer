@@ -1,3 +1,4 @@
+import '@testing-library/jest-dom/extend-expect';
 import { act, render } from '@testing-library/react';
 import { shallow } from 'enzyme';
 import moment from 'moment';
@@ -119,10 +120,6 @@ describe('<CountdownTimer />', () => {
       jest.spyOn(console, 'warn').mockImplementation(() => {});
     });
 
-    afterEach(() => {
-      jest.spyOn(console, 'warn').mockRestore();
-    });
-
     const props = {
       iso: 'garbage',
     };
@@ -151,10 +148,6 @@ describe('<CountdownTimer />', () => {
     // Suppress console errors from moment.js for unknown zone
     beforeEach(() => {
       jest.spyOn(console, 'error').mockImplementation(() => {});
-    });
-
-    afterEach(() => {
-      jest.spyOn(console, 'error').mockRestore();
     });
 
     const props = {
