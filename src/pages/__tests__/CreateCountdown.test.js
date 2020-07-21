@@ -25,8 +25,6 @@ expect.extend({
   },
 });
 
-const blankString = () => /^\s*$/;
-
 const renderWithRouter = (ui) => {
   const view = { history: {}, location: {} };
   Object.assign(view, render(
@@ -50,7 +48,7 @@ describe('<CreateCountdown />', () => {
     expect(headings).toHaveLength(4);
     expect(headings[0])
       .toHaveTagName('h1')
-      .not.toHaveTextContent(blankString());
+      .toHaveTextContent(expect.not.blankString());
     expect(headings[1])
       .toHaveTagName('h2')
       .toHaveTextContent('Countdown preview');

@@ -8,14 +8,12 @@ import CountdownDisplay from '../CountdownDisplay';
 import CountdownFooter from '../CountdownFooter';
 import CountdownTimer from '../CountdownTimer';
 
-const blankString = () => /^\s*$/;
-
 describe('<CountdownTimer />', () => {
   describe('when no props provided', () => {
     it('should render a default header', () => {
       const heading = shallow(<CountdownTimer />).find('h1');
       expect(heading).toExist();
-      expect(heading.text()).not.toMatch(blankString());
+      expect(heading.text()).toMatch(expect.not.blankString());
     });
 
     it('should render a display with duration 0', () => {

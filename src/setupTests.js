@@ -4,3 +4,6 @@ import 'jest-chain';
 import 'jest-enzyme';
 
 configure({ adapter: new Adapter() });
+
+expect.blankString = () => /^\s*$/;
+expect.not.blankString = () => /\S/;
