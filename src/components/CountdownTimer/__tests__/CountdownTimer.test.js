@@ -8,14 +8,14 @@ import CountdownDisplay from '../CountdownDisplay';
 import CountdownFooter from '../CountdownFooter';
 import CountdownTimer from '../CountdownTimer';
 
-const notBlankString = () => /\S+/;
+const blankString = () => /^\s*$/;
 
 describe('<CountdownTimer />', () => {
   describe('when no props provided', () => {
     it('should render a default header', () => {
       const heading = shallow(<CountdownTimer />).find('h1');
       expect(heading).toExist();
-      expect(heading.text()).toMatch(notBlankString());
+      expect(heading.text()).not.toMatch(blankString());
     });
 
     it('should render a display with duration 0', () => {
@@ -176,6 +176,7 @@ describe('<CountdownTimer />', () => {
         theme: timerTheme,
       };
       const view = render(<CountdownTimer {...props} />);
+      expect(view.getByText(props.title).parentNode.className).toMatch(`--bg-${timerTheme}`);
       expect(view.getByText(props.title).parentNode.className).toMatch(`--text-${timerTextColor}`);
       expect(view.getAllByText('0')[0].className).toMatch(`--bg-${digitBgColor}`);
       expect(view.getByRole('tooltip').parentNode.className).toMatch(`--${tooltipTheme}`);
