@@ -94,8 +94,8 @@ describe('<CountdownTimer />', () => {
         .toHaveTextContent('00 seconds');
 
       await act(async () => {
-        await new Promise(resolve => setTimeout(resolve, 1100))
-      })
+        await new Promise(resolve => setTimeout(resolve, 1100));
+      });
 
       expect(display)
         .toHaveTextContent('01 year')
