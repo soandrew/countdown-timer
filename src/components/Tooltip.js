@@ -1,9 +1,7 @@
 import React, { forwardRef, useCallback } from 'react';
 import styles from './Tooltip.module.scss';
 
-const {
-  Tooltip: rootClass,
-} = styles;
+const rootClass = 'Tooltip';
 
 const Tooltip = ({
   title,
@@ -13,9 +11,8 @@ const Tooltip = ({
   className,
   ...rest
 }, ref) => {
-  const rootClassThemeModifier = styles[`Tooltip--${theme}`];
   return (
-    <div className={`${rootClass} ${rootClassThemeModifier}`}>
+    <div className={[styles[rootClass], styles[`${rootClass}--${theme}`]].join(' ')}>
       <span
         tabIndex={0}
         aria-describedby={id}

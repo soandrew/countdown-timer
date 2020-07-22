@@ -8,10 +8,8 @@ import CountdownFooter from './CountdownFooter';
 import CountdownThemeContext from './CountdownThemeContext';
 import styles from './CountdownTimer.module.scss';
 
-const {
-  CountdownTimer: rootClass,
-  CountdownTimer__title: titleClass,
-} = styles;
+const rootClass = 'CountdownTimer';
+const titleClass = `${rootClass}__title`;
 
 const isDarkTheme = (theme) => ['dark', 'r'].includes(theme) || theme.includes('v');
 
@@ -37,17 +35,20 @@ const CountdownTimer = ({
     ...countdownDisplayProps
   } = durationToEnd;
 
-  const rootClassBgModifier = styles[`CountdownTimer--bg-${theme}`] ?? '';
-  const rootClassTextModifier = styles[`CountdownTimer--text-${isDarkTheme(theme) ? 'light' : 'dark'}`];
-
   const Heading = `h${titleLevel}`;
 
   return (
     <CountdownThemeContext.Provider
       value={useMemo(() => ({ name: theme, isDark: isDarkTheme(theme) }), [theme])}
     >
-      <div className={`${rootClass} ${rootClassBgModifier} ${rootClassTextModifier}`}>
-        <Heading className={titleClass}>{title}</Heading>
+      <div
+        className={[
+          styles[rootClass],
+          styles[`${rootClass}--bg-${theme}`] ?? '',
+          styles[`${rootClass}--text-${isDarkTheme(theme) ? 'light' : 'dark'}`],
+        ].join(' ')}
+      >
+        <Heading className={styles[titleClass]}>{title}</Heading>
         <CountdownDisplay {...(value > 0 ? countdownDisplayProps : {})} />
         <CountdownFooter end={end} location={locationForZone[zone]} />
       </div>
