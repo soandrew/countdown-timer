@@ -5,20 +5,18 @@ import React, { useEffect, useMemo, useState } from 'react';
 import locationForZone from 'static/locationForZone';
 import CountdownDisplay from './CountdownDisplay';
 import CountdownFooter from './CountdownFooter';
-import CountdownThemeContext from './CountdownThemeContext';
+import CountdownThemeContext, { themes } from './CountdownThemeContext';
 import styles from './CountdownTimer.module.scss';
 
 const rootClass = 'CountdownTimer';
 const titleClass = `${rootClass}__title`;
-
-const isDarkTheme = (theme) => ['dark', 'r'].includes(theme) || theme.includes('v');
 
 const CountdownTimer = ({
   iso = moment.invalid().toISOString(),
   zone = 'UTC',
   title = 'Countdown Timer',
   titleLevel = 1,
-  theme = 'light',
+  theme: themeId = 'light',
 }) => {
   const end = useMemo(() => moment.tz(iso, moment.tz(zone).zoneName() !== 'UTC' ? zone : null), [iso, zone]);
   const [durationToEnd, setDurationToEnd] = useState(countdown(null, end.toDate()));
@@ -35,17 +33,16 @@ const CountdownTimer = ({
     ...countdownDisplayProps
   } = durationToEnd;
 
+  const theme = useMemo(() => themes.find(theme => theme.id === themeId) ?? themes[0], [themeId]);
   const Heading = `h${titleLevel}`;
 
   return (
-    <CountdownThemeContext.Provider
-      value={useMemo(() => ({ name: theme, isDark: isDarkTheme(theme) }), [theme])}
-    >
+    <CountdownThemeContext.Provider value={theme}>
       <div
         className={[
           styles[rootClass],
-          styles[`${rootClass}--bg-${theme}`] ?? '',
-          styles[`${rootClass}--text-${isDarkTheme(theme) ? 'light' : 'dark'}`],
+          styles[`${rootClass}--bg-${theme.id}`],
+          styles[`${rootClass}--text-${theme.isDark ? 'light' : 'dark'}`],
         ].join(' ')}
       >
         <Heading className={styles[titleClass]}>{title}</Heading>

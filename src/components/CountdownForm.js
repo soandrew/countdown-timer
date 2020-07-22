@@ -5,6 +5,7 @@ import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 
+import { themes } from 'components/CountdownTimer';
 import locationForZone from 'static/locationForZone';
 import { compareLocation, formatLocation } from 'utils/location';
 import styles from './CountdownForm.module.scss';
@@ -14,19 +15,6 @@ const {
 } = styles;
 
 const FIVE_MINUTES = moment.duration(5, 'minutes');
-
-const THEMES = {
-  light: 'Light',
-  dark: 'Dark',
-  r: 'Red',
-  roy: 'Red-Orange-Yellow',
-  y: 'Yellow',
-  g: 'Green',
-  b: 'Blue',
-  biv: 'Blue-Indigo-Purple',
-  v: 'Purple',
-  vmr: 'Purple-Pink-Red'
-};
 
 const ZONES = _.chain(moment.tz.countries())
   .map(country => moment.tz.zonesForCountry(country))
@@ -122,16 +110,16 @@ const CountdownForm = ({
       </Form.Group>
       <Form.Group as="fieldset">
         <Form.Label as="legend">Background colour</Form.Label>
-        {Object.entries(THEMES).map(([value, label]) => (
-          <Form.Check key={value} id={value} inline>
+        {themes.map(({ id, name }) => (
+          <Form.Check key={id} id={id} inline>
             <Form.Check.Input
               type="radio"
               name="theme"
-              value={value}
-              checked={theme === value}
+              value={id}
+              checked={theme === id}
               onChange={handleChange}
             />
-            <Form.Check.Label className="sr-only">{label}</Form.Check.Label>
+            <Form.Check.Label className="sr-only">{name}</Form.Check.Label>
           </Form.Check>
         ))}
       </Form.Group>
