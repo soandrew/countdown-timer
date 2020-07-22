@@ -1,4 +1,3 @@
-import isEqual from 'lodash/isEqual';
 import moment from 'moment';
 import React from 'react';
 
