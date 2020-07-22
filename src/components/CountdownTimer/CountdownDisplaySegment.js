@@ -1,6 +1,7 @@
 import moment from 'moment';
-import React from 'react';
+import React, { useContext } from 'react';
 
+import CountdownThemeContext from './CountdownThemeContext';
 import styles from './CountdownDisplaySegment.module.scss';
 
 const {
@@ -10,10 +11,11 @@ const {
   CountdownDisplaySegment__unit: unitClass,
 } = styles;
 
-const CountdownDisplaySegment = ({ amount, unit, numDigits = 2, theme = 'light' }) => {
+const CountdownDisplaySegment = ({ amount, unit, numDigits = 2 }) => {
   const digits = String(amount).padStart(numDigits, '0').split('');
   const unitSingular = moment.normalizeUnits(unit);
-  const digitClassBgModifier = styles[`CountdownDisplaySegment__digit--bg-${theme}`];
+  const theme = useContext(CountdownThemeContext);
+  const digitClassBgModifier = styles[`CountdownDisplaySegment__digit--bg-${theme.isDark ? 'dark': 'light'}`];
   return (
     <span className={rootClass}>
       <span className={amountClass}>

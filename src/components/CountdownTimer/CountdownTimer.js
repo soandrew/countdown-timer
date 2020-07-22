@@ -5,6 +5,7 @@ import React, { useEffect, useMemo, useState } from 'react';
 import locationForZone from 'static/locationForZone';
 import CountdownDisplay from './CountdownDisplay';
 import CountdownFooter from './CountdownFooter';
+import CountdownThemeContext from './CountdownThemeContext';
 import styles from './CountdownTimer.module.scss';
 
 const {
@@ -12,7 +13,7 @@ const {
   CountdownTimer__title: titleClass,
 } = styles;
 
-const shouldUseLightText = (theme) => ['dark', 'r'].includes(theme) || theme.includes('v');
+const isDarkTheme = (theme) => ['dark', 'r'].includes(theme) || theme.includes('v');
 
 const CountdownTimer = ({
   iso = moment.invalid().toISOString(),
@@ -36,26 +37,22 @@ const CountdownTimer = ({
     ...countdownDisplayProps
   } = durationToEnd;
 
-  const Heading = `h${titleLevel}`;
   const rootClassBgModifier = styles[`CountdownTimer--bg-${theme}`] ?? '';
-  const rootClassTextModifier = styles[`CountdownTimer--text-${shouldUseLightText(theme) ? 'light' : 'dark'}`];
-  const displayTheme = shouldUseLightText(theme) ? 'dark' : 'light';
-  const tooltipTheme = shouldUseLightText(theme) ? 'light' : 'dark';
+  const rootClassTextModifier = styles[`CountdownTimer--text-${isDarkTheme(theme) ? 'light' : 'dark'}`];
+
+  const Heading = `h${titleLevel}`;
 
   return (
-    <div className={`${rootClass} ${rootClassBgModifier} ${rootClassTextModifier}`}>
-      <Heading className={titleClass}>{title}</Heading>
-      <CountdownDisplay
-        {...(value > 0 ? countdownDisplayProps : {})}
-        theme={displayTheme}
-      />
-      <CountdownFooter
-        end={end}
-        location={locationForZone[zone]}
-        tooltipTheme={tooltipTheme}
-      />
-    </div>
-  )
+    <CountdownThemeContext.Provider
+      value={useMemo(() => ({ name: theme, isDark: isDarkTheme(theme) }), [theme])}
+    >
+      <div className={`${rootClass} ${rootClassBgModifier} ${rootClassTextModifier}`}>
+        <Heading className={titleClass}>{title}</Heading>
+        <CountdownDisplay {...(value > 0 ? countdownDisplayProps : {})} />
+        <CountdownFooter end={end} location={locationForZone[zone]} />
+      </div>
+    </CountdownThemeContext.Provider>
+  );
 };
 
 export default CountdownTimer;

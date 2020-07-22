@@ -37,7 +37,7 @@ const getSignificantSegments = ({
 
 const CountdownDisplay = (props) => {
   const children = getSignificantSegments(props).map(([amount, unit]) => (
-    <CountdownDisplaySegment amount={amount} unit={unit} theme={props.theme} key={unit} />
+    <CountdownDisplaySegment amount={amount} unit={unit} key={unit} />
   ));
   // Split into date and time segments
   if (children.length > 4) children.splice(-3, 0, <hr key="break" className={breakClass}/>);

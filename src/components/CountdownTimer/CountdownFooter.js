@@ -1,8 +1,9 @@
 import moment from 'moment';
-import React from 'react';
+import React, { useContext } from 'react';
 
 import Tooltip from 'components/Tooltip';
 import { formatLocation } from 'utils/location';
+import CountdownThemeContext from './CountdownThemeContext';
 import styles from './CountdownFooter.module.scss';
 
 const {
@@ -11,7 +12,8 @@ const {
   CountdownFooter__zone: zoneClass,
 } = styles;
 
-const CountdownFooter = ({ end, location, tooltipTheme }) => {
+const CountdownFooter = ({ end, location }) => {
+  const theme = useContext(CountdownThemeContext)
   const timeEl = (
     <>
       {'until '}
@@ -37,7 +39,7 @@ const CountdownFooter = ({ end, location, tooltipTheme }) => {
       <Tooltip
         title={location ? end.format('[UTC]Z') : end.format('zz')}
         id="zone-info"
-        theme={tooltipTheme}
+        theme={theme.isDark ? 'light' : 'dark'}
         className={zoneClass}
       >
         {location ? formatLocation(location) : end.format('z')}
