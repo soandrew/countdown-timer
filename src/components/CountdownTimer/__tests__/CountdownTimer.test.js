@@ -18,16 +18,8 @@ describe('<CountdownTimer />', () => {
 
     it('should render a display with duration 0', () => {
       const display = shallow(<CountdownTimer />).find(CountdownDisplay);
-      expect(display)
-        .toExist()
-        .toHaveProp({
-          years: 0,
-          months: 0,
-          days: 0,
-          hours: 0,
-          minutes: 0,
-          seconds: 0,
-        });
+      expect(display).toExist();
+      expect(display.props()).toEqual({});
     });
 
     it('should render a footer with an invalid date', () => {
@@ -54,16 +46,8 @@ describe('<CountdownTimer />', () => {
 
     it('should render a display with duration 0', () => {
       const display = shallow(<CountdownTimer {...props} />).find(CountdownDisplay);
-      expect(display)
-        .toExist()
-        .toHaveProp({
-          years: 0,
-          months: 0,
-          days: 0,
-          hours: 0,
-          minutes: 0,
-          seconds: 0,
-        });
+      expect(display).toExist();
+      expect(display.props()).toEqual({});
     });
 
     it('should render a footer with the correct date', () => {
@@ -124,16 +108,8 @@ describe('<CountdownTimer />', () => {
 
     it('should render a display with duration 0', () => {
       const display = shallow(<CountdownTimer {...props} />).find(CountdownDisplay);
-      expect(display)
-        .toExist()
-        .toHaveProp({
-          years: 0,
-          months: 0,
-          days: 0,
-          hours: 0,
-          minutes: 0,
-          seconds: 0,
-        });
+      expect(display).toExist();
+      expect(display.props()).toEqual({});
     });
 
     it('should render a footer with an invalid date', () => {

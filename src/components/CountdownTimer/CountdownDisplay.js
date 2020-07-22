@@ -17,9 +17,8 @@ const getSignificantSegments = ({
   hours,
   minutes,
   seconds,
-  minNumSegments,
-}) => {
-  const allSegments = [
+}, minNumSegments) => {
+  const segments = [
     [years, 'years'],
     [months, 'months'],
     [days, 'days'],
@@ -28,22 +27,31 @@ const getSignificantSegments = ({
     [seconds, 'seconds'],
   ];
   // Determine first significant segment
-  let start = allSegments.findIndex(([amount]) => amount > 0);
-  if (start === -1 || start + minNumSegments > allSegments.length) {
-    start = Math.max(allSegments.length - minNumSegments, 0);
+  let start = segments.findIndex(([amount]) => amount > 0);
+  if (start === -1 || start + minNumSegments > segments.length) {
+    start = Math.max(segments.length - minNumSegments, 0);
   }
-  return allSegments.slice(start);
+  return segments.slice(start);
 };
 
-const CountdownDisplay = (props) => {
-  const children = getSignificantSegments(props).map(([amount, unit]) => (
+const CountdownDisplay = ({
+  years = 0,
+  months = 0,
+  days = 0,
+  hours = 0,
+  minutes = 0,
+  seconds = 0,
+  minNumSegments = 3,
+}) => {
+  const segments = { years, months, days, hours, minutes, seconds };
+  const children = getSignificantSegments(segments, minNumSegments).map(([amount, unit]) => (
     <CountdownDisplaySegment amount={amount} unit={unit} key={unit} />
   ));
   // Split into date and time segments
   if (children.length > 4) children.splice(-3, 0, <hr key="break" className={breakClass}/>);
   return (
     <time
-      dateTime={moment.duration(props).toISOString()}
+      dateTime={moment.duration(segments).toISOString()}
       role="timer"
       aria-atomic
       className={rootClass}
@@ -53,23 +61,4 @@ const CountdownDisplay = (props) => {
   )
 };
 
-// This needs to be declared outside of function in order for it to work for 
-// areEqual as well
-CountdownDisplay.defaultProps = { 
-  years: 0,
-  months: 0,
-  days: 0,
-  hours: 0,
-  minutes: 0,
-  seconds: 0,
-  minNumSegments: 3,
-};
-
-const areEqual = (prevProps, nextProps) => {
-  const prevSegments = getSignificantSegments(prevProps);
-  const nextSegments = getSignificantSegments(nextProps);
-  return isEqual(prevSegments, nextSegments);
-}
-
-//export default React.memo(CountdownDisplay, areEqual);
 export default CountdownDisplay;
