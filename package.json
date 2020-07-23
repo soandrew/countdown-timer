@@ -6,8 +6,11 @@
   "private": true,
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
     "test": "react-scripts test --env=jest-environment-jsdom-sixteen",
+    "build": "react-scripts build",
+    "predeploy": "git tag \"v${npm_package_version}+$(git rev-parse --short HEAD)\"",
+    "deploy": "gh-pages -d build -m \"Deploy $(git describe --tags)\"",
+    "postdeploy": "git push origin $(git describe --tags) -o ci.skip",
     "eject": "react-scripts eject"
   },
   "dependencies": {
@@ -31,6 +34,7 @@
     "@testing-library/user-event": "^12.0.1",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
+    "gh-pages": "^3.1.0",
     "jest-chain": "^1.1.5",
     "jest-environment-jsdom-sixteen": "^1.0.3",
     "jest-enzyme": "^7.1.2"
