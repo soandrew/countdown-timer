@@ -3,8 +3,9 @@ import { fireEvent, render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import moment from 'moment';
 import React from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { MemoryRouter, Route } from 'react-router-dom';
 
+import routes from 'static/routes';
 import CreateCountdown from '../CreateCountdown';
 
 expect.extend({
@@ -27,8 +28,8 @@ expect.extend({
 const renderWithRouter = (ui) => {
   const view = { history: {}, location: {} };
   Object.assign(view, render(
-    <BrowserRouter>
-      {ui}
+    <MemoryRouter initialEntries={[routes.create.path]}>
+      <Route exact path={routes.create.path}>{ui}</Route>
       <Route>
         {({ history, location }) => {
           Object.assign(view.history, history);
@@ -36,7 +37,7 @@ const renderWithRouter = (ui) => {
           return null;
         }}
       </Route>
-    </BrowserRouter>
+    </MemoryRouter>
   ));
   return view;
 };
@@ -191,6 +192,7 @@ describe('<CreateCountdown />', () => {
       fireEvent.change(view.getByLabelText(/time(?! zone)/i), { target: { value: '13:30' } });
       fireEvent.change(view.getByLabelText(/time zone/i), { target: { value: 'America/Vancouver' } });
       userEvent.click(view.getByLabelText(/green/i));
+
       userEvent.click(view.getByRole('button', { name: /create.*countdown/i }));
 
       expect(view.location.pathname).toEqual('/display');
@@ -200,5 +202,25 @@ describe('<CreateCountdown />', () => {
       expect(query.get('zone')).toEqual('America/Vancouver');
       expect(query.get('theme')).toEqual('g');
     });
+  });
+
+  it('should restore form state when user navigates back after clicking submit button', () => {
+    const view = renderWithRouter(<CreateCountdown />);
+    userEvent.type(view.getByLabelText(/title/i), 'My Countdown');
+    fireEvent.change(view.getByLabelText(/date/i), { target: { value: '2020-10-25' } });
+    fireEvent.change(view.getByLabelText(/time(?! zone)/i), { target: { value: '13:30' } });
+    fireEvent.change(view.getByLabelText(/time zone/i), { target: { value: 'America/Vancouver' } });
+    userEvent.click(view.getByLabelText(/green/i));
+
+    userEvent.click(view.getByRole('button', { name: /create.*countdown/i }));
+
+    expect(view.queryByRole('button', { name: /create.*countdown/i })).not.toBeInTheDocument();
+
+    view.history.goBack();
+
+    expect(view.getByLabelText(/date/i)).toHaveValue('2020-10-25');
+    expect(view.getByLabelText(/time(?! zone)/i)).toHaveValue('13:30');
+    expect(view.getByLabelText(/time zone/i)).toHaveValue('America/Vancouver');
+    expect(view.getByLabelText(/green/i)).toBeChecked();
   });
 });

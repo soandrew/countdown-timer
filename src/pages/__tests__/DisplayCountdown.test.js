@@ -3,6 +3,7 @@ import React from 'react';
 import { MemoryRouter } from 'react-router-dom';
 
 import CountdownTimer from 'components/CountdownTimer';
+import routes from 'static/routes';
 import DisplayCountdown from '../DisplayCountdown';
 
 const mountWithRouter = (ui, location) => {
@@ -22,7 +23,7 @@ describe('<DisplayCountdown />', () => {
       theme: 'g',
     };
     const countdown = mountWithRouter(<DisplayCountdown />, {
-      pathname: '/display',
+      pathname: routes.display.path,
       search: `?${new URLSearchParams(queryParams)}`,
     }).find(CountdownTimer);
     expect(countdown).toHaveProp(queryParams);
