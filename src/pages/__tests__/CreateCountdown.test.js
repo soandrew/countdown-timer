@@ -28,7 +28,7 @@ expect.extend({
 const renderWithRouter = (ui) => {
   const view = { history: {}, location: {} };
   Object.assign(view, render(
-    <MemoryRouter initialEntries={[routes.create.path]}>
+    <MemoryRouter basename={process.env.PUBLIC_URL} initialEntries={[routes.create.path]}>
       <Route exact path={routes.create.path}>{ui}</Route>
       <Route>
         {({ history, location }) => {

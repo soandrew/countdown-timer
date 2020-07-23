@@ -1,7 +1,14 @@
 {
   "name": "countdown-timer",
   "version": "0.1.0",
+  "homepage": "https://soandrew.github.io/countdown-timer",
   "private": true,
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jest-environment-jsdom-sixteen",
+    "eject": "react-scripts eject"
+  },
   "dependencies": {
     "bootstrap": "^4.5.0",
     "countdown": "^2.6.0",
@@ -17,14 +24,15 @@
     "react-scripts": "3.4.1",
     "sass-material-colors": "0.0.5"
   },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jest-environment-jsdom-sixteen",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
+  "devDependencies": {
+    "@testing-library/jest-dom": "^5.11.1",
+    "@testing-library/react": "^10.4.7",
+    "@testing-library/user-event": "^12.0.1",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.2",
+    "jest-chain": "^1.1.5",
+    "jest-environment-jsdom-sixteen": "^1.0.3",
+    "jest-enzyme": "^7.1.2"
   },
   "browserslist": {
     "production": [
@@ -38,15 +46,8 @@
       "last 1 safari version"
     ]
   },
-  "devDependencies": {
-    "@testing-library/jest-dom": "^5.11.1",
-    "@testing-library/react": "^10.4.7",
-    "@testing-library/user-event": "^12.0.1",
-    "enzyme": "^3.11.0",
-    "enzyme-adapter-react-16": "^1.15.2",
-    "jest-chain": "^1.1.5",
-    "jest-environment-jsdom-sixteen": "^1.0.3",
-    "jest-enzyme": "^7.1.2"
+  "eslintConfig": {
+    "extends": "react-app"
   },
   "jest": {
     "restoreMocks": true

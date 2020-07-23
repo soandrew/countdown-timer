@@ -8,7 +8,7 @@ import DisplayCountdown from '../DisplayCountdown';
 
 const mountWithRouter = (ui, location) => {
   return mount(
-    <MemoryRouter initialEntries={[location]}>
+    <MemoryRouter basename={process.env.PUBLIC_URL} initialEntries={[location]}>
       {ui}
     </MemoryRouter>
   );
