@@ -175,7 +175,7 @@ describe('<CreateCountdown />', () => {
     it('should update the preview background when value changes', () => {
       const view = renderWithRouter(<CreateCountdown />);
       const countdown = view.getByRole('timer').parentNode;
-      const themeFieldBivOption = view.getByLabelText(/blue-indigo-purple/i);
+      const themeFieldBivOption = view.getByLabelText(/blue.*purple/i);
 
       userEvent.click(themeFieldBivOption);
 
