@@ -1,0 +1,38 @@
+name: Build and Deploy
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Confirm version you with to deploy'
+        required: true
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '12'
+      - run: npm ci
+      - run: npm run build
+      - uses: actions/upload-artifact@v2
+        with:
+          name: build
+          path: build
+  deploy:
+    name: Deploy
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '12'
+      - run: npm ci
+      - uses: actions/download-artifact@v2
+        with:
+          name: build
+      - run: npm run deploy

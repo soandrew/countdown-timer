@@ -11,7 +11,7 @@
     "build": "react-scripts build",
     "predeploy": "git tag \"v${npm_package_version}+$(git rev-parse --short HEAD)\"",
     "deploy": "gh-pages -d build -m \"Deploy $(git describe --tags)\"",
-    "postdeploy": "git push origin $(git describe --tags) -o ci.skip",
+    "postdeploy": "git push origin $(git describe --tags)",
     "eject": "react-scripts eject"
   },
   "dependencies": {
