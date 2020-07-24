@@ -18,7 +18,7 @@ const THEMES = [
   },
   {
     id: 'roy',
-    name: 'Red-Orange-Yellow',
+    name: 'Red to yellow gradient',
     isDark: false,
   },
   {
@@ -38,7 +38,7 @@ const THEMES = [
   },
   {
     id: 'biv',
-    name: 'Blue-Indigo-Purple',
+    name: 'Blue to purple gradient',
     isDark: true,
   },
   {
@@ -48,7 +48,7 @@ const THEMES = [
   },
   {
     id: 'vmr',
-    name: 'Purple-Pink-Red',
+    name: 'Purple to red gradient',
     isDark: true,
   },
 ];
