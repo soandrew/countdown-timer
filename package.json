@@ -1,7 +1,7 @@
 {
   "name": "countdown-timer",
   "description": "Live countdown timers to any date and time",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/soandrew/countdown-timer.git"
