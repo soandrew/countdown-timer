@@ -1,10 +1,11 @@
-import '@testing-library/jest-dom/extend-expect';
-import { act, render } from '@testing-library/react';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 import moment from 'moment';
 import React from 'react';
+import { act } from 'react-dom/test-utils';
 
+import Tooltip from 'components/Tooltip';
 import CountdownDisplay from '../CountdownDisplay';
+import CountdownDisplaySegment from '../CountdownDisplaySegment';
 import CountdownFooter from '../CountdownFooter';
 import CountdownTimer from '../CountdownTimer';
 
@@ -68,26 +69,29 @@ describe('<CountdownTimer />', () => {
     };
 
     it('should render a live display with the correct duration', async () => {
-      const display = render(<CountdownTimer {...props} />).getByRole('timer');
-      expect(display)
-        .toHaveTextContent('01 year')
-        .toHaveTextContent('00 months')
-        .toHaveTextContent('05 days')
-        .toHaveTextContent('00 hours')
-        .toHaveTextContent('03 minutes')
-        .toHaveTextContent('00 seconds');
+      const wrapper = mount(<CountdownTimer {...props} />);
+      expect(wrapper.find(CountdownDisplay)).toHaveProp({
+        years: 1,
+        months: 0,
+        days: 5,
+        hours: 0,
+        minutes: 3,
+        seconds: 0,
+      });
 
       await act(async () => {
         await new Promise(resolve => setTimeout(resolve, 1100));
       });
+      wrapper.update();
 
-      expect(display)
-        .toHaveTextContent('01 year')
-        .toHaveTextContent('00 months')
-        .toHaveTextContent('05 days')
-        .toHaveTextContent('00 hours')
-        .toHaveTextContent('02 minutes')
-        .toHaveTextContent('59 seconds');
+      expect(wrapper.find(CountdownDisplay)).toHaveProp({
+        years: 1,
+        months: 0,
+        days: 5,
+        hours: 0,
+        minutes: 2,
+        seconds: 59,
+      });
     });
 
     it('should render a footer with the correct date', () => {
@@ -149,11 +153,16 @@ describe('<CountdownTimer />', () => {
         title: 'Countdown Timer',
         theme: timerTheme,
       };
-      const view = render(<CountdownTimer {...props} />);
-      expect(view.getByText(props.title).parentNode.className).toMatch(`--bg-${timerTheme}`);
-      expect(view.getByText(props.title).parentNode.className).toMatch(`--text-${timerTextColor}`);
-      expect(view.getAllByText('0')[0].className).toMatch(`--bg-${digitBgColor}`);
-      expect(view.getByRole('tooltip').parentNode.className).toMatch(`--${tooltipTheme}`);
+      const wrapper = mount(<CountdownTimer {...props} />);
+      expect(wrapper.find(CountdownTimer).getDOMNode().className)
+        .toMatch(`--bg-${timerTheme}`)
+        .toMatch(`--text-${timerTextColor}`);
+      wrapper.find(CountdownDisplaySegment).forEach(it => {
+        it.getDOMNode().firstChild.childNodes.forEach(it => {
+          expect(it.className).toMatch(`--bg-${digitBgColor}`);
+        });
+      });
+      expect(wrapper.find(Tooltip).getDOMNode().className).toMatch(`--${tooltipTheme}`);
     });
   });
 });
