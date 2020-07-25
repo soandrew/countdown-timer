@@ -42,6 +42,20 @@ describe('compareLocation()', () => {
     expect(compareLocation(d, e)).toBeLessThan(0);
     expect(compareLocation(e, f)).toBeLessThan(0);
   });
+
+  it('should handle nullish input', () => {
+    expect(compareLocation(undefined, {})).toBeGreaterThan(0);
+    expect(compareLocation({}, undefined)).toBeLessThan(0);
+
+    expect(compareLocation(null, {})).toBeGreaterThan(0);
+    expect(compareLocation({}, null)).toBeLessThan(0);
+    
+    expect(compareLocation(undefined, undefined)).toEqual(0);
+    expect(compareLocation(null, null)).toEqual(0);
+
+    expect(compareLocation(undefined, null)).toEqual(0);
+    expect(compareLocation(null, undefined)).toEqual(0);
+  });
 });
 
 describe('formatLocation()', () => {
@@ -67,5 +81,10 @@ describe('formatLocation()', () => {
         expect(actual).toEqual(expect.stringContaining('🇺🇸'));
       });
     });
+  });
+
+  it('should handle nullish input', () => {
+    expect(formatLocation(undefined)).toEqual('');
+    expect(formatLocation(null)).toEqual('');
   });
 });

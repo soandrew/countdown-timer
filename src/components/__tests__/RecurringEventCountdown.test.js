@@ -13,7 +13,7 @@ describe('<RecurringEventCountdown />', () => {
         link     | Countdown
         ${false} | ${CountdownTimer}
         ${true}  | ${CountdownLink}
-      `('[%#] <$Countdown.name />', ({ link, Countdown }) => {
+      `('<$Countdown.name />', ({ link, Countdown }) => {
         const props = {
           prev: moment().date(1),
           now: moment().date(2),
@@ -33,7 +33,7 @@ describe('<RecurringEventCountdown />', () => {
         link     | Countdown
         ${false} | ${CountdownTimer}
         ${true}  | ${CountdownLink}
-      `('[%#] <$Countdown.name />', ({ link, Countdown }) => {
+      `('<$Countdown.name />', ({ link, Countdown }) => {
         const props = {
           prev: moment().date(1),
           now: moment().date(4),
