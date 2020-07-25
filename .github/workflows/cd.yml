@@ -4,12 +4,32 @@ on:
   workflow_dispatch:
     inputs:
       version:
-        description: 'Confirm version you with to deploy'
+        description: 'Confirm version you wish to deploy'
         required: true
 
 jobs:
+  confirm:
+    name: Confirm Version
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Extract npm_package_version from package.json
+        run: |
+          echo "::set-env name=npm_package_version::$( \
+            cat package.json \
+            | grep '\"version\":' \
+            | awk -F: '{ print $2 }' \
+            | sed 's/[ \",]//g' \
+          )"
+      - name: Confirm version
+        run: |
+          if [[ "${{ github.event.inputs.version }}" != "$npm_package_version" ]]; then \
+            echo "Inputted version ${{ github.event.inputs.version }} does not match repository version $npm_package_version"; \
+            exit 1; \
+          fi
   build:
     name: Build
+    needs: confirm
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
