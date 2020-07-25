@@ -5,7 +5,7 @@ import { Route } from 'react-router-dom';
 import SEO from 'components/SEO';
 import Tooltip from 'components/Tooltip';
 import routes from 'static/routes';
-import { formatLocation } from 'utils/location';
+import { compareLocation, formatLocation } from 'utils/location';
 import CountdownThemeContext from './CountdownThemeContext';
 import styles from './CountdownFooter.module.scss';
 
@@ -61,4 +61,13 @@ const CountdownFooter = ({ end, location }) => {
   );
 };
 
-export default CountdownFooter;
+const areEqual = (prevProps, nextProps) => {
+  return (
+    (prevProps.end.isSame(nextProps.end)
+      || (!prevProps.end.isValid() && !nextProps.end.isValid())
+    )
+    && compareLocation(prevProps.location, nextProps.location) === 0
+  );
+};
+
+export default React.memo(CountdownFooter, areEqual);

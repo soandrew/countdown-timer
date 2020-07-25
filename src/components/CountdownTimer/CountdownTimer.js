@@ -49,7 +49,7 @@ const CountdownTimer = ({
         ].join(' ')}
       >
         <Route exact path={routes.display.path}>
-          <SEO title={title} />
+          {useMemo(() => <SEO title={title} />, [title])}
         </Route>
         <Heading className={styles[titleClass]}>{title}</Heading>
         <CountdownDisplay {...(value > 0 ? countdownDisplayProps : {})} />
