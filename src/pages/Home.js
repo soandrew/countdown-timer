@@ -7,6 +7,7 @@ import ListGroup from 'react-bootstrap/ListGroup'
 import { Link } from 'react-router-dom';
 
 import RecurringEventCountdown from 'components/RecurringEventCountdown';
+import SEO from 'components/SEO';
 import SiteHeader from 'components/SiteHeader';
 import holidays from 'static/holidays';
 import routes from 'static/routes';
@@ -74,6 +75,10 @@ const Home = ({
 }) => {
   return (
     <>
+      <SEO
+        title="Live Countdown Timers"
+        description="Live countdown timers to any date and time. Browse common countdowns or create a custom countdown."
+      />
       <SiteHeader title="Live Countdown Timers" />
       <TopBanner />
       <ListGroup as="ul">

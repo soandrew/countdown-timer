@@ -28,7 +28,9 @@ const toRegionalIndicatorSymbol = (str) => {
 
 const SPACE = '\u2004';  // U+2004 THREE-PER-EM SPACE
 
-const formatLocation = ({ city, country: countryCode }) => {
+const formatLocation = (location) => {
+  if (!location) return '';
+  const { city, country: countryCode } = location;
   const flag = toRegionalIndicatorSymbol(countryCode);
   const country = countries[countryCode];
   return `${!isWindows() ? `${flag}${SPACE}` : ''}${city}, ${country}`;

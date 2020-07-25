@@ -1,8 +1,11 @@
 import countdown from 'countdown';
 import moment from 'moment-timezone';
 import React, { useEffect, useMemo, useState } from 'react';
+import { Route } from 'react-router-dom';
 
+import SEO from 'components/SEO';
 import locationForZone from 'static/locationForZone';
+import routes from 'static/routes';
 import CountdownDisplay from './CountdownDisplay';
 import CountdownFooter from './CountdownFooter';
 import CountdownThemeContext, { themes } from './CountdownThemeContext';
@@ -45,6 +48,9 @@ const CountdownTimer = ({
           styles[`${rootClass}--text-${theme.isDark ? 'light' : 'dark'}`],
         ].join(' ')}
       >
+        <Route exact path={routes.display.path}>
+          <SEO title={title} />
+        </Route>
         <Heading className={styles[titleClass]}>{title}</Heading>
         <CountdownDisplay {...(value > 0 ? countdownDisplayProps : {})} />
         <CountdownFooter end={end} location={locationForZone[zone]} />

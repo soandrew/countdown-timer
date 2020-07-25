@@ -3,6 +3,7 @@ import Button from 'react-bootstrap/Button'
 import Container from 'react-bootstrap/Container'
 import { Link } from 'react-router-dom';
 
+import SEO from 'components/SEO';
 import routes from 'static/routes';
 
 const NotFound = () => {
@@ -10,6 +11,7 @@ const NotFound = () => {
     <Container
       className="flex-grow-1 d-flex flex-column justify-content-center align-items-center text-center"
     >
+      <SEO title="Page Not Found" />
       <div
         aria-hidden
         className="text-muted display-1"

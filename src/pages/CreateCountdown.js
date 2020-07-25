@@ -5,6 +5,7 @@ import { useHistory, useLocation } from 'react-router-dom';
 
 import CountdownForm from 'components/CountdownForm';
 import CountdownPreview from 'components/CountdownPreview';
+import SEO from 'components/SEO';
 import SiteHeader from 'components/SiteHeader';
 import routes from 'static/routes';
 
@@ -52,7 +53,11 @@ const CreateCountdown = ({
 
   return (
     <>
-      <SiteHeader title="Create a custom countdown timer to any date" />
+      <SEO
+        title="Create a Countdown Timer"
+        description="Create a custom countdown timer to any date and time. Specify a date and time, add a title, and choose a background. Supports timezones."
+      />
+      <SiteHeader title="Create a custom countdown timer to any date and time" />
       <CountdownPreview
         {...parseFormValues(values, defaultValues)}
         titleLevel={2}
