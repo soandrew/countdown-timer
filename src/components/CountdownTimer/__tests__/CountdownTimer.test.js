@@ -2,12 +2,21 @@ import { shallow, mount } from 'enzyme';
 import moment from 'moment';
 import React from 'react';
 import { act } from 'react-dom/test-utils';
+import { MemoryRouter } from 'react-router-dom';
 
 import Tooltip from 'components/Tooltip';
 import CountdownDisplay from '../CountdownDisplay';
 import CountdownDisplaySegment from '../CountdownDisplaySegment';
 import CountdownFooter from '../CountdownFooter';
 import CountdownTimer from '../CountdownTimer';
+
+const mountWithRouter = (ui) => {
+  return mount(
+    <MemoryRouter basename={process.env.PUBLIC_URL}>
+      {ui}
+    </MemoryRouter>
+  );
+};
 
 describe('<CountdownTimer />', () => {
   describe('when no props provided', () => {
@@ -69,7 +78,7 @@ describe('<CountdownTimer />', () => {
     };
 
     it('should render a live display with the correct duration', async () => {
-      const wrapper = mount(<CountdownTimer {...props} />);
+      const wrapper = mountWithRouter(<CountdownTimer {...props} />);
       expect(wrapper.find(CountdownDisplay)).toHaveProp({
         years: 1,
         months: 0,
@@ -153,7 +162,7 @@ describe('<CountdownTimer />', () => {
         title: 'Countdown Timer',
         theme: timerTheme,
       };
-      const wrapper = mount(<CountdownTimer {...props} />);
+      const wrapper = mountWithRouter(<CountdownTimer {...props} />);
       expect(wrapper.find(CountdownTimer).getDOMNode().className)
         .toMatch(`--bg-${timerTheme}`)
         .toMatch(`--text-${timerTextColor}`);

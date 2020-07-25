@@ -9,7 +9,9 @@ describe('<CountdownFooter />', () => {
     it('should only render invalid date text', () => {
       const wrapper = shallow(<CountdownFooter end={moment.invalid()} />);
       expect(wrapper)
-        .toHaveText('until Invalid date')
+        .toIncludeText('until Invalid date')
+        .not.toIncludeText(' at ')
+        .not.toIncludeText(' in ')
         .not.toContainMatchingElement('time');
     });
   });
