@@ -4,8 +4,7 @@
 
 .Banner {
   display: flex;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto;
   max-width: map-get($container-max-widths, lg);
   flex-flow: column;
   text-align: center;

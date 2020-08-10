@@ -1,0 +1,87 @@
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
+@import '~bootstrap/scss/mixins';
+
+.SiteHeader {
+  $root: &;
+
+  position: relative;
+  background: theme-color('dark');
+  color: color('white');
+  text-align: center;
+
+  &__brand {
+    display: flex;
+    padding: map-get($spacers, 3) $grid-gutter-width/2;
+    justify-content: center;
+    color: unset;
+
+    @include hover() {
+      background: rgba($white, 0.05);
+      color: unset;
+      text-decoration: unset;
+    }
+  }
+
+  &__icon {
+    flex: none;
+    width: 2rem;
+    height: auto;
+    fill: color('white') !important;
+    stroke: color('white') !important;
+  }
+
+  &__name,
+  &__title {
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 2rem;
+  }
+
+  &__name {
+    margin-left: map-get($spacers, 3);
+    white-space: nowrap;
+  }
+
+  &__title {
+    margin: 0;
+    padding: map-get($spacers, 3) $grid-gutter-width/2 map-get($spacers, 1);
+    background: color('white');
+    color: gray('900');
+  }
+
+  &--shrink {
+    #{$root}__icon {
+      width: 1.5rem;
+    }
+
+    #{$root}__name,
+    #{$root}__title {
+      font-size: 1.25rem;
+      line-height: 1.5rem;
+    }
+
+    #{$root}__title {
+      padding: map-get($spacers, 1) $grid-gutter-width/2 map-get($spacers, 3);
+      background: unset;
+      color: unset;
+    }
+  }
+
+  @include media-breakpoint-up(lg) {
+    &__brand {
+      &:nth-last-child(2) {
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+    }
+
+    &__title,
+    &--shrink &__title {
+      padding: map-get($spacers, 3) $grid-gutter-width/2;
+      background: unset;
+      color: unset;
+    }
+  }
+}

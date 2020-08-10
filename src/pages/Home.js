@@ -49,7 +49,7 @@ const makeRecurringEvents = (now) => _.chain(holidays)
   .value();
 
 const TopBanner = () => (
-  <Container className="pt-3 pb-1 pb-sm-0">
+  <Container className="pt-3 pb-4 pb-sm-3">
     <p className={`${bannerClass} ${bannerClassSmallModifier}`}>
       <span className="mb-2 mb-sm-0 mr-sm-2">Select a countdown below or</span>
       <Button as={Link} to={routes.create.path} variant="outline-dark">
@@ -60,7 +60,7 @@ const TopBanner = () => (
 );
 
 const BottomBanner = () => (
-  <Container as="nav" className="pt-4 pb-2">
+  <Container as="nav" className="pt-3 pb-4">
     <p className={bannerClass}>
       <span className="mb-2">Can't find the countdown you're looking for?</span>
       <Button as={Link} to={routes.create.path} variant="dark" className="p-3">

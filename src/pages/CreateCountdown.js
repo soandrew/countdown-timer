@@ -57,13 +57,13 @@ const CreateCountdown = ({
         title="Create a Countdown Timer"
         description="Create a custom countdown timer to any date and time. Specify a date and time, add a title, and choose a background. Supports timezones."
       />
-      <SiteHeader title="Create a custom countdown timer to any date and time" />
+      <SiteHeader title="Create a custom countdown timer to any date and time" shrink={true} />
       <CountdownPreview
         {...parseFormValues(values, defaultValues)}
         titleLevel={2}
       />
       <Container as="section" fluid className="bg-dark text-white py-5 flex-grow-1">
-        <Container className="bg-white text-dark pt-2 pb-3 rounded">
+        <Container className="bg-white text-dark pt-2 pb-3 rounded-lg">
           <CountdownForm
             defaultValues={defaultValues}
             values={values}
