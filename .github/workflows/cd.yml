@@ -48,10 +48,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - name: Setup Git
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email github-actions[bot]@users.noreply.github.com
+          git remote set-url origin "https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git"
       - uses: actions/setup-node@v1
         with:
           node-version: '12'
       - uses: actions/download-artifact@v2
         with:
           name: build
-      - run: npm run deploy
+          path: build
+      - run: npm run deploy -- --silent
