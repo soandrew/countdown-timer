@@ -14,6 +14,7 @@
     "lint": "npx eslint src",
     "test": "react-scripts test --env=jest-environment-jsdom-sixteen",
     "build": "react-scripts build",
+    "postbuild": "react-snap",
     "predeploy": "git tag \"v${npm_package_version}+$(git rev-parse --short HEAD)\"",
     "deploy": "npx gh-pages -d build -m \"Deploy $(git describe --tags)\"",
     "postdeploy": "git push origin $(git describe --tags)",
@@ -46,7 +47,8 @@
     "jest-chain": "^1.1.5",
     "jest-environment-jsdom-sixteen": "^1.0.3",
     "jest-enzyme": "^7.1.2",
-    "lint-staged": "^10.2.11"
+    "lint-staged": "^10.2.11",
+    "react-snap": "^1.23.0"
   },
   "browserslist": {
     "production": [
