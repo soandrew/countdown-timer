@@ -6,7 +6,7 @@ import useAutoScroll from 'hooks/useAutoScroll';
 import CreateCountdown from 'pages/CreateCountdown';
 import DisplayCountdown from 'pages/DisplayCountdown';
 import Home from 'pages/Home';
-import NotFound from 'pages/NotFound'
+import NotFound from 'pages/NotFound';
 import routes from 'static/routes';
 
 const App = () => {
@@ -14,6 +14,8 @@ const App = () => {
   return (
     <>
       <Helmet titleTemplate="%s | Countdown Timer" defaultTitle="Countdown Timer">
+        <meta property="og:image" content={`${process.env.REACT_APP_HOMEPAGE}/og-image.png`} />
+        <meta property="og:image:alt" content="Countdown Timer" />
         <meta property="og:site_name" content="Countdown Timer" />
         <meta property="og:type" content="website" />
       </Helmet>
