@@ -11,11 +11,11 @@
   "private": true,
   "scripts": {
     "start": "react-scripts start",
-    "lint": "eslint src",
+    "lint": "npx eslint src",
     "test": "react-scripts test --env=jest-environment-jsdom-sixteen",
     "build": "react-scripts build",
     "predeploy": "git tag \"v${npm_package_version}+$(git rev-parse --short HEAD)\"",
-    "deploy": "gh-pages -d build -m \"Deploy $(git describe --tags)\"",
+    "deploy": "npx gh-pages -d build -m \"Deploy $(git describe --tags)\"",
     "postdeploy": "git push origin $(git describe --tags)",
     "eject": "react-scripts eject"
   },

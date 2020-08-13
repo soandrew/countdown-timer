@@ -14,7 +14,7 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: '12'
-      - run: npm ci
+      - run: npm install --no-save eslint-config-react-app
       - run: npm run lint
   test:
     name: Test
